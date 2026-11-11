@@ -1,6 +1,7 @@
 /* Os gatos da Caixa Química, no mesmo desenho dos aplicativos (SVG, sem imagem para baixar).
 
-   Schrödinger é o gato cinza que cuida das três caixas; o Bohr (preto) mora na Atomic Box, o
+   Schrödinger é o gato arlequim (branco, preto e laranja: as cores dos outros três) que cuida das
+   três caixas; o Bohr (preto) mora na Atomic Box, o
    Avogato (laranja) no Molbox e o Kekulé (branco) na Organic Box. Nesta página eles ficam
    escondidos: só as orelhas aparecem na beira de um cartão. Um toque e o gato sobe com uma frase
    para animar o estudo (cada toque, a próxima). A seta do balão, um toque fora ou Esc o escondem.
@@ -22,7 +23,9 @@ function criar(tag, props, filhos) {
 const texto = (t) => document.createTextNode(t);
 
 const PELAGENS = {
-  schrodinger: { pelo: "#737884", luz: "#9A9FAA", contorno: "#2B2D33", orelha: "#F29BA7", iris: "#8FE0C0", coleira: "#E3262E", bigode: "#F1F2F4" },
+  // Arlequim: o branco do Kekulé com manchas no preto do Bohr e no laranja do Avogato.
+  schrodinger: { pelo: "#F5F1E8", luz: "#FFFFFF", contorno: "#6F685C", orelha: "#F29BA7", iris: "#D9A21B", coleira: "#E3262E", bigode: "#8C8577",
+    manchas: true, preto: "#22232A", laranja: "#EE8A3C" },
   bohr: { pelo: "#22232A", luz: "#383A44", contorno: "#9AA0AA", orelha: "#8A4A56", iris: "#F6C945", coleira: "#E3262E", bigode: "#C9CDD4" },
   avogato: { pelo: "#EE8A3C", luz: "#F9B981", contorno: "#A8500F", orelha: "#F7C3A0", iris: "#3E8E5A", coleira: "#164194", bigode: "#FFF3E6" },
   kekule: { pelo: "#F5F1E8", luz: "#FFFFFF", contorno: "#A79F8F", orelha: "#F29BA7", iris: "#2E8B57", coleira: "#1B5E3A", bigode: "#8C8577" },
@@ -35,8 +38,19 @@ function rabo(c) {
   const d = "M80 106 C106 108 112 86 101 74 C96 68 100 60 107 60";
   return s("g", { class: "gato-rabo" }, [
     s("path", { d, fill: "none", stroke: c.contorno, "stroke-width": 10.5, "stroke-linecap": "round" }),
-    s("path", { d, fill: "none", stroke: c.pelo, "stroke-width": 7.5, "stroke-linecap": "round" }),
+    s("path", { d, fill: "none", stroke: c.manchas ? c.laranja : c.pelo, "stroke-width": 7.5, "stroke-linecap": "round" }),
+    ...(c.manchas ? [s("path", { d: "M101 74 C96 68 100 60 107 60", fill: "none", stroke: c.preto, "stroke-width": 7.5, "stroke-linecap": "round" })] : []),
   ]);
+}
+
+/* As manchas do arlequim, recortadas pela forma (cabeça ou tronco) em que ficam. */
+let recortes = 0;
+function manchas(forma, desenhos) {
+  const id = `cq-recorte-${++recortes}`;
+  return [
+    s("clipPath", { id }, [s("path", { d: forma })]),
+    s("g", { "clip-path": `url(#${id})` }, desenhos),
+  ];
 }
 
 function pata(c, cx, cy = 110) {
@@ -58,14 +72,21 @@ function olhos(c, tipo, olhar = [0, 0]) {
   return [s("g", { class: "gato-olhos" }, [olho(48), olho(72)])];
 }
 
+const CABECA = "M34 50 C34 34 46 26 60 26 C74 26 86 34 86 50 C86 54 85 57 83 60 L88 63 L81 64 C76 70 68 72 60 72 C52 72 44 70 39 64 L32 63 L37 60 C35 57 34 54 34 50 Z";
+const TRONCO = "M40 113 C32 96 40 72 60 70 C80 72 88 96 80 113 Z";
+
 function cabeca(c, { tipoOlhos = "abertos", olhar } = {}) {
   const pelo = { fill: c.pelo, stroke: c.contorno, "stroke-width": TRACO, "stroke-linejoin": "round" };
   return [
-    s("path", { d: "M37 40 L34 12 Q35 9 38 11 L57 28 Z", ...pelo }),
-    s("path", { d: "M83 40 L86 12 Q85 9 82 11 L63 28 Z", ...pelo }),
+    s("path", { d: "M37 40 L34 12 Q35 9 38 11 L57 28 Z", ...pelo, ...(c.manchas ? { fill: c.preto } : {}) }),
+    s("path", { d: "M83 40 L86 12 Q85 9 82 11 L63 28 Z", ...pelo, ...(c.manchas ? { fill: c.laranja } : {}) }),
     s("path", { d: "M40 34 L38.5 17 L51 28 Z", fill: c.orelha }),
     s("path", { d: "M80 34 L81.5 17 L69 28 Z", fill: c.orelha }),
-    s("path", { d: "M34 50 C34 34 46 26 60 26 C74 26 86 34 86 50 C86 54 85 57 83 60 L88 63 L81 64 C76 70 68 72 60 72 C52 72 44 70 39 64 L32 63 L37 60 C35 57 34 54 34 50 Z", ...pelo }),
+    s("path", { d: CABECA, ...pelo }),
+    ...(c.manchas ? [...manchas(CABECA, [
+      s("path", { d: "M28 20 H57 Q63 38 54 49 Q44 60 28 54 Z", fill: c.preto }),
+      s("path", { d: "M65 20 H92 V46 Q80 50 72 42 Q65 33 65 20 Z", fill: c.laranja }),
+    ]), s("path", { d: CABECA, fill: "none", stroke: c.contorno, "stroke-width": TRACO, "stroke-linejoin": "round" })] : []),
     s("path", { d: "M46 31 Q60 26 74 31", fill: "none", stroke: c.luz, "stroke-width": 3, "stroke-linecap": "round", opacity: 0.7 }),
     ...olhos(c, tipoOlhos, olhar),
     s("path", { d: "M57.4 57 h5.2 q1 0 .3 1 l-2.2 2.6 q-.7 .8 -1.4 0 l-2.2 -2.6 q-.7 -1 .3 -1 z", fill: "#E3262E" }),
@@ -78,7 +99,11 @@ function sentado(c, rosto = {}) {
   const pelo = { fill: c.pelo, stroke: c.contorno, "stroke-width": TRACO, "stroke-linejoin": "round" };
   return [
     rabo(c),
-    s("path", { d: "M40 113 C32 96 40 72 60 70 C80 72 88 96 80 113 Z", ...pelo }),
+    s("path", { d: TRONCO, ...pelo }),
+    ...(c.manchas ? [...manchas(TRONCO, [
+      s("path", { d: "M30 82 Q50 84 52 99 Q50 112 30 116 Z", fill: c.laranja }),
+      s("path", { d: "M92 74 Q70 78 71 91 Q75 101 92 99 Z", fill: c.preto }),
+    ]), s("path", { d: TRONCO, fill: "none", stroke: c.contorno, "stroke-width": TRACO, "stroke-linejoin": "round" })] : []),
     s("ellipse", { cx: 60, cy: 92, rx: 9, ry: 13, fill: c.luz, opacity: 0.55 }),
     pata(c, 51), pata(c, 69),
     s("path", { d: "M44 70.5 Q60 78 76 70.5", fill: "none", stroke: c.coleira, "stroke-width": 4.2, "stroke-linecap": "round" }),
