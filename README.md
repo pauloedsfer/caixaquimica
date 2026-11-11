@@ -2,7 +2,7 @@
 
 Página inicial do caixaquimica.com.br, com as três caixas:
 
-- `/atomicbox/`: Super Atomic Box (iniciante), por enquanto a página "em breve" desta pasta.
+- `/atomicbox/`: Super Atomic Box (iniciante), servido pela Vercel a partir do projeto atomicbox (ver `vercel.json`).
 - `/molbox/`: Super Molbox, servido pela Vercel a partir de supermolbox.vercel.app (ver `vercel.json`).
 - `/organicbox/`: Super Organic Box, servido a partir de superorganico.vercel.app.
 
