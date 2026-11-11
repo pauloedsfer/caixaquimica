@@ -216,10 +216,11 @@ svg.sobre-gato { width: 160px; }
 .gato-olhos { transform-origin: 50% 50%; }
 @media (prefers-reduced-motion: no-preference) {
   .gato-rabo { animation: gato-rabo 3.2s ease-in-out infinite; }
-  .gato-olhos { animation: gato-piscar 5.5s infinite; }
-  .caixa-molbox .gato-olhos { animation-delay: -1.8s; }
-  .caixa-organic .gato-olhos { animation-delay: -3.4s; }
 }
+/* O piscar é um movimento mínimo: fica ligado mesmo em aparelhos com as animações reduzidas. */
+.gato-olhos { animation: gato-piscar 5.5s infinite; }
+.caixa-molbox .gato-olhos { animation-delay: -1.8s; }
+.caixa-organic .gato-olhos { animation-delay: -3.4s; }
 @media (prefers-reduced-motion: reduce) { .gato-escondido { transition: none; } }
 @keyframes gato-rabo { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(7deg); } }
 @keyframes gato-piscar { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.08); } }
