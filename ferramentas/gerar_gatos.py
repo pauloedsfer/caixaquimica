@@ -21,15 +21,15 @@ HEXAGONO = '''<polygon points="32,39.5 38.5,43.25 38.5,50.75 32,54.5 25.5,50.75 
 
 GATOS = {
     # Atomic Box: gato preto numa caixa de metal escuro; o vermelho fica no nariz e na coleira.
-    "atomic": dict(nome="Gato da Super Atomic Box", pelo="#1E1F24", contorno="#7A7F88", orelha="#5B5F68",
+    "atomic": dict(nome="Bohr, o gato da Super Atomic Box", pelo="#1E1F24", contorno="#7A7F88", orelha="#5B5F68",
                    olho="#F4F4F5", pupila="#121316", nariz="#E3262E", coleira="#E3262E",
                    caixa="url(#metal)", borda="#8A8F98", emblema=ATOMO, mancha=None),
     # MOLBOX: gato laranja (o laranja da marca) numa caixa azul.
-    "molbox": dict(nome="Gato da Super MOLBOX", pelo="#EE8A3C", contorno="#B85A16", orelha="#F7C3A0",
+    "molbox": dict(nome="Avogato, o gato da Super Molbox", pelo="#EE8A3C", contorno="#B85A16", orelha="#F7C3A0",
                    olho="#FFFFFF", pupila="#1A1B1F", nariz="#B85A16", coleira="#6FC5F0",
                    caixa="#164194", borda="#0F2E6B", emblema=MOL, mancha="#C9661E"),
     # Organic Box: gato branco de olhos verdes numa caixa verde.
-    "organic": dict(nome="Gato da Super Organic Box", pelo="#F5F1E8", contorno="#B9B2A3", orelha="#F29BA7",
+    "organic": dict(nome="Kekulé, o gato da Super Organic Box", pelo="#F5F1E8", contorno="#B9B2A3", orelha="#F29BA7",
                     olho="#FFFFFF", pupila="#1F6B42", nariz="#E77F8F", coleira="#8FD07A",
                     caixa="#1B5E3A", borda="#103C25", emblema=HEXAGONO, mancha=None),
 }
