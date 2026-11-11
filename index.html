@@ -30,7 +30,7 @@
   </header>
 
   <main>
-    <section class="abertura">
+    <section class="abertura" data-esconderijo="schrodinger" data-onde="direita">
       <div class="largura abertura-grade">
         <div>
         <p class="sobretitulo">Aplicativos gratuitos de Química</p>
@@ -38,18 +38,18 @@
         <p class="lead">Três caixas, uma escada. Cada aplicativo explica o conteúdo, treina com exercícios e, quando o aluno erra, mostra qual passo saiu do trilho. Funcionam no celular, sem internet depois da primeira visita, e sem cadastro.</p>
         <a class="botao-principal" href="#caixas">Escolher uma caixa</a>
         </div>
-        <img class="abertura-gato" src="marca/caixaquimica.svg" alt="" width="300" height="300">
+        <img class="abertura-gato" data-gato="schrodinger" src="marca/caixaquimica.svg" alt="Schrödinger, o gato cinza, espiando de dentro da Caixa Química" width="300" height="300">
       </div>
     </section>
 
     <section id="caixas" class="caixas" aria-labelledby="titulo-caixas">
       <div class="largura">
         <h2 id="titulo-caixas">Escolha a sua caixa</h2>
-        <p class="ajuda-secao">Comece pela que combina com o que você está estudando agora. A ordem sugerida vai da esquerda para a direita.</p>
+        <p class="ajuda-secao">Comece pela que combina com o que você está estudando agora. A ordem sugerida vai da esquerda para a direita. E repare nas orelhas: tem um gato escondido em cada caixa.</p>
         <ol class="escada">
-          <li class="caixa caixa-atomic">
+          <li class="caixa caixa-atomic" data-esconderijo="bohr">
             <div class="caixa-cabeca">
-              <img src="marca/gato-atomic.svg" alt="Bohr, o gato preto da Atomic Box" width="88" height="88">
+              <img data-gato="bohr" src="marca/gato-atomic.svg" alt="Bohr, o gato preto da Atomic Box" width="88" height="88">
               <span class="degrau">1 · Iniciante</span>
             </div>
             <h3><span class="caixa-super">Super</span> Atomic Box</h3>
@@ -57,9 +57,9 @@
             <p>Da matéria que se vê ao átomo: estados físicos, misturas, modelos atômicos, distribuição eletrônica, tabela periódica, ligações e as vidrarias do laboratório.</p>
             <a class="botao-caixa" href="/atomicbox/">Abrir o Atomic Box</a>
           </li>
-          <li class="caixa caixa-molbox">
+          <li class="caixa caixa-molbox" data-esconderijo="avogato">
             <div class="caixa-cabeca">
-              <img src="marca/gato-molbox.svg" alt="Avogato, o gato laranja do Molbox" width="88" height="88">
+              <img data-gato="avogato" src="marca/gato-molbox.svg" alt="Avogato, o gato laranja do Molbox" width="88" height="88">
               <span class="degrau">2 · Intermediário</span>
             </div>
             <h3><span class="caixa-super">Super</span> Molbox</h3>
@@ -67,9 +67,9 @@
             <p>O mol como ponte entre o que se pesa e o que se conta: massa molar, balanceamento, estequiometria, soluções e nomenclatura inorgânica.</p>
             <a class="botao-caixa" href="/molbox/">Abrir o Molbox</a>
           </li>
-          <li class="caixa caixa-organic">
+          <li class="caixa caixa-organic" data-esconderijo="kekule">
             <div class="caixa-cabeca">
-              <img src="marca/gato-organic.svg" alt="Kekulé, o gato branco da Organic Box" width="88" height="88">
+              <img data-gato="kekule" src="marca/gato-organic.svg" alt="Kekulé, o gato branco da Organic Box" width="88" height="88">
               <span class="degrau">3 · Intermediário</span>
             </div>
             <h3><span class="caixa-super">Super</span> Organic Box</h3>
@@ -126,7 +126,7 @@
       <div class="largura">
         <h2 id="titulo-sobre">Sobre o projeto</h2>
         <div class="sobre-grade">
-          <img class="sobre-gato" src="marca/caixaquimica.svg" alt="Schrödinger, o gato cinza da Caixa Química, espiando de dentro da caixa" width="160" height="160">
+          <img class="sobre-gato" data-gato="schrodinger" data-pose="feliz" src="marca/gato-schrodinger.svg" alt="Schrödinger, o gato cinza da Caixa Química" width="160" height="160">
           <div>
             <p>A Caixa Química nasceu na sala de aula, das dúvidas que se repetem todo ano: por que o mol é um número tão grande, por onde começa a numeração da cadeia, onde a conta saiu do trilho. Os aplicativos são feitos pelo Prof. Paulo Fernandes para ajudar alunos e professores de todo o Brasil.</p>
             <p>E por que caixa? Por causa de duas caixas famosas da física quântica. A "partícula na caixa" é o modelo que explica por que o elétron só pode ter certas energias, a base dos níveis de energia que você vai ver no átomo. E no gato de Schrödinger, enquanto ninguém abre a caixa, não dá para saber o que tem lá dentro. Com o estudo é igual: a resposta só aparece quando você abre a caixa. Em cada caixa mora um gato diferente: o Bohr na Atomic Box, o Avogato no Molbox e o Kekulé na Organic Box. E o Schrödinger, o gato cinza do nosso logo, cuida de todas elas, esperando você abrir a primeira.</p>
@@ -143,5 +143,6 @@
       <p class="rodape-fino">Aplicativos gratuitos, sem anúncios e sem coleta de dados pessoais.</p>
     </div>
   </footer>
+  <script type="module" src="gatos.js"></script>
 </body>
 </html>

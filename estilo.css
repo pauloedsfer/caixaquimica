@@ -161,7 +161,7 @@ p { margin: 0 0 1em; }
 
 /* Os símbolos azul e verde ficariam sumidos no cartão da mesma cor: entram numa placa clara. */
 /* O gato de cada caixa, grande no alto do cartão. */
-.caixa-cabeca img { width: 88px; height: 88px; }
+.caixa-cabeca img, .caixa-cabeca .gato-desenho { width: 96px; height: 96px; flex: 0 0 auto; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35)); }
 .caixa-pt { flex: 0 0 auto !important; margin: -6px 0 6px; font-family: "Exo 2", Inter, sans-serif; font-style: italic; color: rgba(255, 255, 255, 0.72) !important; }
 /* O logo tem uma caixa preta, que sumiria no topo escuro. */
 .marca img { background: #F4F5F7; border-radius: 9px; padding: 2px; }
@@ -175,3 +175,54 @@ p { margin: 0 0 1em; }
 .abertura-grade { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
 .abertura-gato { width: clamp(200px, 24vw, 300px); height: auto; filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55)); }
 @media (max-width: 760px) { .abertura-grade { grid-template-columns: 1fr; } .abertura-gato { display: none; } }
+
+/* ---------- os gatos ---------- */
+.gato-desenho { display: block; height: auto; overflow: visible; }
+svg.abertura-gato { width: clamp(200px, 24vw, 300px); }
+svg.sobre-gato { width: 160px; }
+@media (max-width: 640px) { svg.sobre-gato { width: 120px; } }
+
+/* O gato escondido: só as orelhas e os olhos na beira; um toque e ele sobe com uma frase. */
+.com-gato { position: relative; overflow: hidden; }
+.caixa.com-gato { padding-bottom: 64px; }
+.abertura.com-gato { overflow: hidden; }
+.esconderijo { position: absolute; bottom: 0; width: 92px; z-index: 3; }
+.esconderijo.direita { right: 18px; }
+.esconderijo.esquerda { left: max(16px, calc(50% - 560px)); }
+.gato-escondido {
+  display: block; width: 92px; padding: 0; border: 0; background: none; cursor: pointer;
+  transform: translateY(52%); transition: transform 0.35s cubic-bezier(.3, 1.6, .5, 1);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+}
+.gato-escondido:hover { transform: translateY(42%); }
+.gato-escondido.aparecendo { transform: translateY(6%); }
+.gato-escondido:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; border-radius: 12px; }
+.balao-gato {
+  position: absolute; bottom: 100px; right: 0; width: min(270px, 72vw); padding: 10px 12px 10px 14px; border-radius: 14px;
+  display: flex; align-items: flex-start; gap: 8px;
+  background: #FFFFFF; color: #17181C; border: 2px solid #E3262E; font-size: 0.95rem; line-height: 1.4; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.balao-gato[hidden] { display: none; }
+.balao-gato > div { flex: 1; }
+.esconderijo.esquerda .balao-gato { right: auto; left: 0; }
+.gato-voltar {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #DADDE3; cursor: pointer;
+  background: #F6F7F9; color: #C8202A; font: inherit; font-size: 0.85rem; line-height: 1;
+}
+.gato-voltar:hover { border-color: #C8202A; }
+
+.gato-rabo, .gato-olhos { transform-box: fill-box; }
+.gato-rabo { transform-origin: 0% 100%; }
+.gato-olhos { transform-origin: 50% 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .gato-rabo { animation: gato-rabo 3.2s ease-in-out infinite; }
+  .gato-olhos { animation: gato-piscar 5.5s infinite; }
+  .caixa-molbox .gato-olhos { animation-delay: -1.8s; }
+  .caixa-organic .gato-olhos { animation-delay: -3.4s; }
+}
+@media (prefers-reduced-motion: reduce) { .gato-escondido { transition: none; } }
+@keyframes gato-rabo { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(7deg); } }
+@keyframes gato-piscar { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.08); } }
+.abertura .esconderijo.direita { right: max(16px, calc(50% - 560px)); }
+@media (max-width: 760px) { .abertura.com-gato { padding-bottom: 96px; } }
+@media (max-width: 760px) { svg.abertura-gato { display: none; } }
