@@ -160,7 +160,9 @@ p { margin: 0 0 1em; }
 .rodape-fino { font-size: 0.9rem; color: #9EA3AD; }
 
 /* Os símbolos azul e verde ficariam sumidos no cartão da mesma cor: entram numa placa clara. */
-.caixa-molbox .caixa-cabeca img, .caixa-organic .caixa-cabeca img { background: rgba(255, 255, 255, 0.94); border-radius: 16px; padding: 6px; }
+/* O gato de cada caixa, grande no alto do cartão. */
+.caixa-cabeca img { width: 88px; height: 88px; }
+.caixa-pt { flex: 0 0 auto !important; margin: -6px 0 6px; font-family: "Exo 2", Inter, sans-serif; font-style: italic; color: rgba(255, 255, 255, 0.72) !important; }
 /* O logo tem uma caixa preta, que sumiria no topo escuro. */
 .marca img { background: #F4F5F7; border-radius: 9px; padding: 2px; }
 
