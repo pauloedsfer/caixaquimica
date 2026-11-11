@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Super Química">
-  <title>Super Química</title>
-  <rect x="2" y="30" width="20" height="20" rx="5" fill="#1B1C1F"/>
-  <circle cx="12" cy="40" r="2.6" fill="#E3262E"/>
-  <rect x="22" y="20" width="20" height="30" rx="5" fill="#164194"/>
-  <circle cx="32" cy="35" r="2.6" fill="#E84910"/>
-  <rect x="42" y="10" width="20" height="40" rx="5" fill="#1B5E3A"/>
-  <polygon points="52,24 57,27 57,33 52,36 47,33 47,27" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
-</svg>

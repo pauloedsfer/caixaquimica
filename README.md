@@ -1,6 +1,6 @@
-# Super Química
+# Caixa Química
 
-Página inicial do superquimica.com.br, com as três caixas:
+Página inicial do caixaquimica.com.br, com as três caixas:
 
 - `/atomicbox/`: Super Atomic Box (iniciante), por enquanto a página "em breve" desta pasta.
 - `/molbox/`: Super MOLBOX, servido pela Vercel a partir de supermolbox.vercel.app (ver `vercel.json`).
