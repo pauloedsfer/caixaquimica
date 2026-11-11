@@ -227,3 +227,22 @@ svg.sobre-gato { width: 160px; }
 .abertura .esconderijo.direita { right: max(16px, calc(50% - 560px)); }
 @media (max-width: 760px) { .abertura.com-gato { padding-bottom: 96px; } }
 @media (max-width: 760px) { svg.abertura-gato { display: none; } }
+
+/* ---------- como estudar e a profissão ---------- */
+.estudar, .profissao { padding: clamp(40px, 6vw, 72px) 0; }
+.estudar.com-gato { padding-bottom: clamp(72px, 8vw, 104px); }
+.estudar .esconderijo.direita { right: max(16px, calc(50% - 560px)); }
+.profissao { background: var(--superficie); border-block: 1px solid var(--borda); }
+.grade-habitos, .grade-profissao { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.grade-habitos { counter-reset: habito; }
+.grade-habitos li { counter-increment: habito; position: relative; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px 22px 22px 70px; box-shadow: var(--sombra); }
+.grade-habitos li::before { content: counter(habito); position: absolute; left: 20px; top: 20px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--destaque); color: #FFFFFF; font-family: "Exo 2", sans-serif; font-style: italic; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .grade-habitos li::before { color: #17181C; } }
+.grade-habitos h3, .grade-profissao h3 { font-size: 1.15rem; }
+.grade-habitos p, .grade-profissao p { color: var(--texto-suave); margin: 0; }
+.grade-profissao li { border-left: 4px solid var(--destaque); padding: 4px 0 4px 16px; }
+.grade-profissao li:nth-child(3n+2) { border-color: var(--molbox); }
+.grade-profissao li:nth-child(3n) { border-color: var(--organic); }
+.caminhos { margin-top: 32px; background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 24px; }
+.caminhos p { color: var(--texto-suave); max-width: 780px; }
+.caminhos .nota-caminhos { font-size: 0.92rem; margin: 0; }
