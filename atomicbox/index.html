@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Super Atomic Box</title>
+  <meta name="description" content="Super Atomic Box: da matéria que se vê ao átomo. Em breve no Super Química.">
+  <meta name="theme-color" content="#0B0B0D">
+  <link rel="icon" href="../marca/atomicbox-simbolo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../estilo.css">
+  <style>
+    /* Prévia do visual do Atomic Box: preto metálico, letra branca, detalhes vermelhos. */
+    body { background: #0B0B0D; color: #F4F4F5; min-height: 100vh; display: grid; place-items: center; }
+    .placa {
+      width: min(560px, 100% - 32px); padding: 40px 32px; border-radius: 22px; text-align: center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.12), transparent 35%, rgba(255,255,255,0.05) 55%, transparent 75%),
+        linear-gradient(160deg, #2E3035, #101113 70%);
+      border: 1px solid #50535A; box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .placa img { width: 96px; height: 96px; margin: 0 auto 20px; }
+    .placa h1 { font-size: clamp(2rem, 7vw, 2.8rem); }
+    .placa h1 span { color: #FF3B43; display: block; font-size: 0.6em; }
+    .placa p { color: #C9CCD2; }
+    .placa .etapas { color: #FF6B71; font-family: "Exo 2", Inter, sans-serif; font-style: italic; }
+    .placa a { color: #FFFFFF; }
+  </style>
+</head>
+<body>
+  <main class="placa">
+    <img src="../marca/atomicbox-simbolo.svg" alt="" width="96" height="96">
+    <h1><span>Super</span> Atomic Box</h1>
+    <p>Da matéria que se vê ao átomo. A primeira caixa da escada está sendo montada.</p>
+    <p class="etapas">Estados da matéria · Modelos atômicos · Distribuição eletrônica · Tabela periódica · Ligações</p>
+    <p>Enquanto isso, <a href="../">veja as outras caixas</a>.</p>
+  </main>
+</body>
+</html>

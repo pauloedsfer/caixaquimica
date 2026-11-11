@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/molbox", "destination": "/molbox/", "permanent": true },
+    { "source": "/organicbox", "destination": "/organicbox/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/molbox/:caminho*", "destination": "https://supermolbox.vercel.app/:caminho*" },
+    { "source": "/organicbox/:caminho*", "destination": "https://superorganico.vercel.app/:caminho*" }
+  ]
+}

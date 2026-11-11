@@ -1,0 +1,165 @@
+/* Super Química — página inicial com as três caixas.
+   Cada caixa usa as cores do seu aplicativo; o resto da página é neutro, para as caixas
+   aparecerem. Fontes hospedadas aqui mesmo (sem CDN). */
+
+@font-face { font-family: "Exo 2"; font-style: italic; font-weight: 500; font-display: swap; src: url("fontes/exo-2-latin-500-italic.woff2") format("woff2"); }
+@font-face { font-family: "Exo 2"; font-style: italic; font-weight: 600; font-display: swap; src: url("fontes/exo-2-latin-600-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("fontes/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("fontes/inter-latin-500-normal.woff2") format("woff2"); }
+
+:root {
+  --fundo: #F6F7F9;
+  --superficie: #FFFFFF;
+  --texto: #17181C;
+  --texto-suave: #4B5160;
+  --borda: #DADDE3;
+  --destaque: #C8202A;        /* o vermelho do átomo, do Atomic Box */
+  --topo: #121316;
+  --topo-texto: #FFFFFF;
+  --molbox: #164194;
+  --molbox-acento: #E84910;
+  --organic: #1B5E3A;
+  --organic-acento: #8FD07A;
+  --raio: 18px;
+  --sombra: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0E0F12;
+    --superficie: #17191D;
+    --texto: #F1F2F4;
+    --texto-suave: #B3B8C2;
+    --borda: #2C2F36;
+    --destaque: #FF5A61;
+    --sombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font: 400 1.0625rem/1.6 Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: "Exo 2", Inter, Arial, sans-serif; font-style: italic; font-weight: 600; line-height: 1.15; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2rem, 5.5vw, 3.4rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; }
+
+.largura { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+.pular-para { position: absolute; left: -999px; top: 8px; background: var(--superficie); color: var(--texto); padding: 8px 12px; border-radius: 8px; z-index: 10; }
+.pular-para:focus { left: 8px; }
+:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; }
+
+/* ---------- topo ---------- */
+.topo { background: var(--topo); color: var(--topo-texto); }
+.topo-linha { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+.marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Exo 2", Inter, sans-serif; font-style: italic; font-weight: 600; font-size: 1.25rem; }
+.marca-super { color: #FF5A61; }
+.topo nav { display: flex; gap: 4px 18px; flex-wrap: wrap; }
+.topo nav a { text-decoration: none; opacity: 0.9; padding: 8px 0; font-size: 0.95rem; }
+.topo nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 560px) { .topo nav { display: none; } }
+
+/* ---------- abertura ---------- */
+.abertura {
+  background:
+    radial-gradient(1200px 400px at 85% -10%, rgba(200, 32, 42, 0.18), transparent 60%),
+    linear-gradient(180deg, var(--topo), #1D1F24);
+  color: #FFFFFF;
+  padding: clamp(48px, 9vw, 104px) 0 clamp(56px, 9vw, 112px);
+}
+.sobretitulo { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; color: #FF8A8F; margin-bottom: 14px; }
+.lead { max-width: 640px; font-size: 1.15rem; color: #D7DAE0; }
+.botao-principal {
+  display: inline-block; margin-top: 8px; padding: 14px 24px; border-radius: 999px;
+  background: #E3262E; color: #FFFFFF; text-decoration: none; font-weight: 500;
+}
+.botao-principal:hover { background: #C8202A; }
+
+/* ---------- as caixas ---------- */
+.caixas { padding: clamp(48px, 7vw, 88px) 0; }
+.ajuda-secao { color: var(--texto-suave); max-width: 640px; }
+.escada { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); align-items: end; }
+@media (max-width: 900px) { .escada { grid-template-columns: 1fr; } }
+/* No computador, as caixas sobem como degraus: do iniciante ao intermediário. */
+@media (min-width: 901px) {
+  .caixa-molbox { margin-bottom: 28px; }
+  .caixa-organic { margin-bottom: 56px; }
+}
+
+.caixa {
+  position: relative; border-radius: var(--raio); padding: 24px; box-shadow: var(--sombra);
+  display: flex; flex-direction: column; gap: 4px; min-height: 340px; color: #FFFFFF;
+}
+.caixa p { color: rgba(255, 255, 255, 0.86); flex: 1; }
+.caixa h3 { font-size: 1.55rem; margin-top: 12px; }
+.caixa-super { display: block; font-size: 0.8em; }
+.caixa-cabeca { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.caixa-cabeca img { width: 64px; height: 64px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35)); }
+.degrau { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.14); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+
+.caixa-atomic {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.10), transparent 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%),
+    linear-gradient(160deg, #2C2E33, #0E0F11 70%);
+  border: 1px solid #4A4D54;
+}
+.caixa-atomic .caixa-super { color: #FF5A61; }
+.caixa-molbox { background: linear-gradient(160deg, #1D50B0, var(--molbox) 70%); }
+.caixa-molbox .caixa-super { color: #FFB08F; }
+.caixa-organic { background: linear-gradient(160deg, #23764A, var(--organic) 70%); }
+.caixa-organic .caixa-super { color: var(--organic-acento); }
+
+.botao-caixa {
+  align-self: flex-start; margin-top: 8px; padding: 12px 20px; border-radius: 999px;
+  background: #FFFFFF; color: #111; text-decoration: none; font-weight: 500;
+}
+.caixa-molbox .botao-caixa { color: var(--molbox); }
+.caixa-organic .botao-caixa { color: var(--organic); }
+.botao-caixa:hover { background: #EEF0F3; }
+.caixa .botao-caixa::after { content: ""; position: absolute; inset: 0; border-radius: var(--raio); }  /* a caixa toda é clicável */
+.caixa:has(.botao-caixa):hover { transform: translateY(-3px); transition: transform 0.15s ease; }
+@media (prefers-reduced-motion: reduce) { .caixa:has(.botao-caixa):hover { transform: none; } }
+.selo-breve {
+  align-self: flex-start; margin-top: 8px; padding: 10px 18px; border-radius: 999px;
+  border: 1px solid #E3262E; color: #FF8A8F; font-weight: 500;
+}
+
+/* ---------- pontos em comum ---------- */
+.diferenca { padding: clamp(40px, 6vw, 72px) 0; background: var(--superficie); border-block: 1px solid var(--borda); }
+.grade-pontos { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.grade-pontos h3 { font-size: 1.15rem; }
+.grade-pontos h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--destaque); margin-bottom: 12px; }
+.grade-pontos p { color: var(--texto-suave); margin: 0; }
+
+/* ---------- professores e sobre ---------- */
+.professores, .sobre { padding: clamp(40px, 6vw, 72px) 0; }
+.duas-colunas { display: grid; gap: 32px; grid-template-columns: 1.4fr 1fr; align-items: start; }
+@media (max-width: 800px) { .duas-colunas { grid-template-columns: 1fr; } }
+.professores p, .sobre p { color: var(--texto-suave); max-width: 680px; }
+.lista-check { list-style: none; padding: 20px 24px; margin: 0; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); }
+.lista-check li { padding: 8px 0 8px 30px; position: relative; }
+.lista-check li + li { border-top: 1px solid var(--borda); }
+.lista-check li::before { content: "✓"; position: absolute; left: 0; top: 8px; color: var(--destaque); font-weight: 700; }
+.sobre { background: var(--superficie); border-top: 1px solid var(--borda); }
+
+/* ---------- rodapé ---------- */
+.rodape { background: var(--topo); color: #D7DAE0; padding: 28px 0; }
+.rodape p { margin: 0 0 4px; }
+.rodape-fino { font-size: 0.9rem; color: #9EA3AD; }
+
+/* Os símbolos azul e verde ficariam sumidos no cartão da mesma cor: entram numa placa clara. */
+.caixa-molbox .caixa-cabeca img, .caixa-organic .caixa-cabeca img { background: rgba(255, 255, 255, 0.94); border-radius: 16px; padding: 6px; }
+/* O logo tem uma caixa preta, que sumiria no topo escuro. */
+.marca img { background: #F4F5F7; border-radius: 9px; padding: 2px; }
