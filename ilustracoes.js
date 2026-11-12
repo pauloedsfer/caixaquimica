@@ -181,22 +181,25 @@ const DESENHOS = {
     ]),
   ],
 
-  // O átomo girando: as órbitas e os elétrons rodam juntos.
-  pesquisa: () => {
-    const orbitas = [0, 60, 120];
-    const eletrons = orbitas.map((r) => {
-      const a = (r * Math.PI) / 180;
-      return c("circle", { cx: (60 + 36 * Math.cos(a)).toFixed(1), cy: (45 + 36 * Math.sin(a)).toFixed(1), r: 4, fill: AMARELO, "stroke-width": 1.6 });
-    });
-    return [
-      g("ilu-atomo", [
-        ...orbitas.map((r) => s("ellipse", { cx: 60, cy: 45, rx: 36, ry: 12, transform: `rotate(${r} 60 45)`, fill: "none", stroke: AZUL, "stroke-width": 2.4 })),
-        ...eletrons,
-      ]),
-      c("circle", { cx: 60, cy: 45, r: 7.5, fill: VERMELHO }),
-      s("circle", { cx: 57.5, cy: 42.5, r: 2.2, fill: "#FFFFFF", opacity: 0.7 }),
-    ];
-  },
+  // O átomo de Rutherford, como na tela Modelos atômicos do Atomic Box: cada elétron corre na sua
+  // órbita. Dois vaivéns (um na horizontal, outro na vertical, com um quarto de volta de diferença)
+  // desenham a elipse, e a bolinha continua redonda; cada órbita tem a sua velocidade.
+  pesquisa: () => [
+    s("defs", {}, [s("radialGradient", { id: "ilu-nucleo" }, [
+      s("stop", { offset: "0", "stop-color": "#FF5A61", "stop-opacity": 0.85 }),
+      s("stop", { offset: "1", "stop-color": "#FF5A61", "stop-opacity": 0 }),
+    ])]),
+    ...[0, 60, -60].map((r, k) => s("g", { transform: `rotate(${r} 60 45)` }, [
+      s("ellipse", { cx: 60, cy: 45, rx: 38, ry: 13, fill: "none", stroke: AZUL, "stroke-width": 2.2, opacity: 0.85 }),
+      g(`ilu-ex o${k}`, [g(`ilu-ey o${k}`, [
+        c("circle", { cx: 60, cy: 45, r: 4.2, fill: AMARELO, "stroke-width": 1.4 }),
+        s("circle", { cx: 58.8, cy: 43.8, r: 1.2, fill: "#FFFFFF", opacity: 0.8 }),
+      ])]),
+    ])),
+    g("ilu-nucleo-pulsa", [s("circle", { cx: 60, cy: 45, r: 11, fill: "url(#ilu-nucleo)" })]),
+    c("circle", { cx: 60, cy: 45, r: 5, fill: VERMELHO, "stroke-width": 1.4 }),
+    s("circle", { cx: 58.4, cy: 43.4, r: 1.5, fill: "#FFFFFF", opacity: 0.7 }),
+  ],
 
   // O quadro com a equação aparecendo, como se fosse escrita a giz.
   aula: () => [

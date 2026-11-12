@@ -251,7 +251,7 @@ svg.sobre-gato { width: 160px; }
 .ilu-mao { transform-origin: 0% 100%; }
 .ilu-barra { transform-origin: 50% 100%; }
 .ilu-abre { transform-origin: 100% 100%; }
-.ilu-atomo { transform-origin: 60px 45px; }
+.ilu-nucleo-pulsa { transform-box: fill-box; transform-origin: 50% 50%; }
 .ilu-escreve { transform-box: view-box; }
 
 .ilu-pop { animation: ilu-pop 4.5s ease-in-out infinite; }
@@ -281,7 +281,11 @@ svg.sobre-gato { width: 160px; }
 .ilu-anel { animation: ilu-anel 2.6s ease-out infinite; }
 .ilu-ondas { animation: ilu-ondas 2s linear infinite; }
 .ilu-varre { animation: ilu-varre 4s ease-in-out infinite alternate; }
-.ilu-atomo { animation: ilu-girar 10s linear infinite; }
+.ilu-ex { animation: ilu-ex 1.3s ease-in-out infinite alternate; }
+.ilu-ey { animation: ilu-ey 1.3s ease-in-out infinite alternate; animation-delay: -0.65s; }
+.ilu-ex.o1 { animation-duration: 1.7s; } .ilu-ey.o1 { animation-duration: 1.7s; animation-delay: -0.85s; }
+.ilu-ex.o2 { animation-duration: 1.05s; } .ilu-ey.o2 { animation-duration: 1.05s; animation-delay: -0.525s; }
+.ilu-nucleo-pulsa { animation: ilu-nucleo 1.6s ease-in-out infinite; }
 .ilu-escreve { animation: ilu-escreve 5s steps(16, end) infinite; }
 .ilu-pendulo { animation: ilu-pendulo 2.4s ease-in-out infinite alternate; }
 .ilu-check-pulsa { animation: ilu-brilha 3s ease-in-out infinite; }
@@ -304,6 +308,9 @@ svg.sobre-gato { width: 160px; }
 @keyframes ilu-zzz { 0% { opacity: 0; transform: translate(0, 6px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(5px, -10px); } }
 @keyframes ilu-fumaca { 0% { opacity: 0.8; transform: translate(0, 0) scale(0.6); } 100% { opacity: 0; transform: translate(10px, -16px) scale(1.4); } }
 @keyframes ilu-girar { to { transform: rotate(360deg); } }
+@keyframes ilu-ex { from { transform: translateX(-38px); } to { transform: translateX(38px); } }
+@keyframes ilu-ey { from { transform: translateY(-13px); } to { transform: translateY(13px); } }
+@keyframes ilu-nucleo { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
 @keyframes ilu-bolha { 0% { opacity: 0; transform: translateY(0); } 25% { opacity: 1; } 100% { opacity: 0; transform: translateY(-16px); } }
 @keyframes ilu-gota { 0%, 30% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 85% { opacity: 1; transform: translateY(14px); } 100% { opacity: 0; transform: translateY(16px); } }
 @keyframes ilu-gota-cai { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 65% { opacity: 1; transform: translateY(38px); } 70%, 100% { opacity: 0; transform: translateY(40px); } }
@@ -328,6 +335,9 @@ svg.sobre-gato { width: 160px; }
 :root.sem-movimento .ilu-check { stroke-dashoffset: 0; }
 :root.sem-movimento .ilu-roda.r1 { transform: translate(30px, 0); } :root.sem-movimento .ilu-roda.r2 { transform: translate(60px, 0); }
 :root.sem-movimento .ilu-escreve { transform: translateX(92px); }
+/* Parados, os elétrons ficam espalhados pelas órbitas (e não empilhados no núcleo). */
+:root.sem-movimento .ilu-ex.o0 { transform: translateX(38px); } :root.sem-movimento .ilu-ex.o1 { transform: translateX(-28px); } :root.sem-movimento .ilu-ey.o1 { transform: translateY(9px); }
+:root.sem-movimento .ilu-ex.o2 { transform: translateX(-18px); } :root.sem-movimento .ilu-ey.o2 { transform: translateY(-11px); }
 :root.sem-movimento .ilu-gota, :root.sem-movimento .ilu-gota-cai, :root.sem-movimento .ilu-anel, :root.sem-movimento .ilu-fumaca, :root.sem-movimento .ilu-bolha, :root.sem-movimento .ilu-zzz { opacity: 0.9; }
 :root.sem-movimento .revelar { opacity: 1 !important; transform: none !important; transition: none !important; }
 
