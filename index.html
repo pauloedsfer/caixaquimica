@@ -87,21 +87,21 @@
       <div class="largura">
         <h2 id="titulo-diferenca">O que as caixas têm em comum</h2>
         <ul class="grade-pontos">
-          <li>
-            <h3>Erro com explicação</h3>
-            <p>O aplicativo reconhece os erros mais comuns de cada conta e de cada nome, e diz qual foi o passo trocado, em vez de só "errado".</p>
+          <li class="revelar">
+            <div class="icone" data-ilustracao="pista"></div>
+            <div><h3>Erro com explicação</h3><p>Diz qual passo saiu do trilho, não só “errado”.</p></div>
           </li>
-          <li>
-            <h3>Sem internet</h3>
-            <p>Depois da primeira visita, funciona offline. Dá para instalar na tela inicial do celular, como um aplicativo.</p>
+          <li class="revelar">
+            <div class="icone" data-ilustracao="offline"></div>
+            <div><h3>Sem internet</h3><p>Depois da primeira visita, funciona offline e instala como app.</p></div>
           </li>
-          <li>
-            <h3>Sem cadastro e sem anúncio</h3>
-            <p>Não pede nome, e-mail nem senha. O progresso fica guardado no próprio aparelho do aluno.</p>
+          <li class="revelar">
+            <div class="icone" data-ilustracao="cadeado"></div>
+            <div><h3>Sem cadastro e sem anúncio</h3><p>Sem nome, e-mail ou senha. O progresso fica no aparelho.</p></div>
           </li>
-          <li>
-            <h3>Feito em sala de aula</h3>
-            <p>Cada caixa é testada com turmas de verdade, e as ideias dos alunos viram melhorias, do treino ao avatar.</p>
+          <li class="revelar">
+            <div class="icone" data-ilustracao="turma"></div>
+            <div><h3>Feito em sala de aula</h3><p>Testado com turmas de verdade. As ideias dos alunos viram melhorias.</p></div>
           </li>
         </ul>
       </div>
@@ -110,31 +110,43 @@
     <section id="estudar" class="estudar" aria-labelledby="titulo-estudar" data-esconderijo="schrodinger">
       <div class="largura">
         <h2 id="titulo-estudar">Como estudar para aprender de verdade</h2>
-        <p class="ajuda-secao">Estudar não é ler de novo até cansar. A pesquisa sobre aprendizagem aponta alguns hábitos simples que funcionam melhor, e os aplicativos foram montados em cima deles.</p>
+        <p class="ajuda-secao">Seis hábitos que a pesquisa sobre aprendizagem mostra que funcionam. As caixas foram feitas em cima deles.</p>
         <ol class="grade-habitos">
-          <li>
-            <h3>Tente lembrar antes de olhar</h3>
-            <p>Fechar o caderno e tentar responder fixa mais do que reler ou grifar. Errar nessa hora faz parte: é o cérebro procurando o caminho. Por isso o Treino pergunta primeiro e explica depois.</p>
+          <li class="habito revelar">
+            <div class="ilustracao" data-ilustracao="lembrar"></div>
+            <h3><span class="num" aria-hidden="true">1</span> Tente lembrar antes de olhar</h3>
+            <p class="resumo">Feche o caderno e tente responder.</p>
+            <details><summary>Por quê?</summary><p>Tentar lembrar fixa mais do que reler ou grifar. Errar nessa hora faz parte: é o cérebro procurando o caminho. Por isso o Treino pergunta primeiro e explica depois.</p></details>
           </li>
-          <li>
-            <h3>Pouco, mas todo dia</h3>
-            <p>Quinze minutos por dia durante uma semana rendem mais que duas horas na véspera. O que você revê depois de alguns dias, quando já estava quase esquecendo, fica guardado por mais tempo.</p>
+          <li class="habito revelar">
+            <div class="ilustracao" data-ilustracao="dia"></div>
+            <h3><span class="num" aria-hidden="true">2</span> Pouco, mas todo dia</h3>
+            <p class="resumo">15 minutos por dia valem mais que 2 horas na véspera.</p>
+            <details><summary>Por quê?</summary><p>O que você revê depois de alguns dias, quando já estava quase esquecendo, fica guardado por muito mais tempo do que o que você estudou tudo de uma vez.</p></details>
           </li>
-          <li>
-            <h3>Misture os assuntos</h3>
-            <p>Fazer vinte exercícios iguais dá a sensação de que você aprendeu. Misturar tipos diferentes dá mais trabalho e ensina o principal: reconhecer qual ferramenta usar em cada problema.</p>
+          <li class="habito revelar">
+            <div class="ilustracao" data-ilustracao="misture"></div>
+            <h3><span class="num" aria-hidden="true">3</span> Misture os assuntos</h3>
+            <p class="resumo">Treine tipos diferentes de exercício juntos.</p>
+            <details><summary>Por quê?</summary><p>Vinte exercícios iguais dão a sensação de que você aprendeu. Misturar dá mais trabalho e ensina o principal: reconhecer qual ferramenta usar em cada problema.</p></details>
           </li>
-          <li>
-            <h3>Explique para alguém</h3>
-            <p>Se você consegue explicar para um colega (ou para o gato) com as suas palavras, você entendeu. Se travar no meio, achou exatamente o ponto que falta estudar.</p>
+          <li class="habito revelar">
+            <div class="ilustracao" data-ilustracao="explique"></div>
+            <h3><span class="num" aria-hidden="true">4</span> Explique para alguém</h3>
+            <p class="resumo">Se você consegue explicar, você entendeu.</p>
+            <details><summary>Por quê?</summary><p>Explique para um colega (ou para o gato) com as suas palavras. Se travar no meio, achou exatamente o ponto que falta estudar.</p></details>
           </li>
-          <li>
-            <h3>Trate o erro como pista</h3>
-            <p>O erro mostra em que passo o raciocínio desviou. Vale mais entender um erro do que acertar dez questões fáceis. É por isso que cada caixa diz qual foi o passo trocado.</p>
+          <li class="habito revelar">
+            <div class="ilustracao" data-ilustracao="erro"></div>
+            <h3><span class="num" aria-hidden="true">5</span> Trate o erro como pista</h3>
+            <p class="resumo">O erro mostra onde o raciocínio desviou.</p>
+            <details><summary>Por quê?</summary><p>Vale mais entender um erro do que acertar dez questões fáceis. É por isso que cada caixa diz qual foi o passo trocado.</p></details>
           </li>
-          <li>
-            <h3>Durma e faça pausas</h3>
-            <p>É durante o sono que o cérebro organiza o que foi estudado no dia. Virar a noite antes da prova costuma atrapalhar mais do que ajudar. Uma pausa curta a cada meia hora também ajuda.</p>
+          <li class="habito revelar">
+            <div class="ilustracao" data-ilustracao="sono"></div>
+            <h3><span class="num" aria-hidden="true">6</span> Durma e faça pausas</h3>
+            <p class="resumo">O cérebro organiza o estudo enquanto você dorme.</p>
+            <details><summary>Por quê?</summary><p>Virar a noite antes da prova costuma atrapalhar mais do que ajudar. Uma pausa curta a cada meia hora de estudo também ajuda.</p></details>
           </li>
         </ol>
       </div>
@@ -143,39 +155,64 @@
     <section id="profissao" class="profissao" aria-labelledby="titulo-profissao">
       <div class="largura">
         <h2 id="titulo-profissao">E depois? A profissão de quem estuda Química</h2>
-        <p class="ajuda-secao">A Química está no remédio, na água da torneira, no combustível, na comida, no cosmético e na bateria do celular. Quem trabalha com ela pode estar em lugares bem diferentes.</p>
+        <p class="ajuda-secao">A Química está no remédio, na água, na comida e na bateria do celular. Quem trabalha com ela pode estar em lugares bem diferentes.</p>
         <ul class="grade-profissao">
-          <li>
+          <li class="area revelar">
+            <div class="ilustracao" data-ilustracao="industria"></div>
             <h3>Na indústria</h3>
-            <p>Controlar a qualidade de alimentos, remédios, tintas, plásticos, combustíveis e cosméticos, e melhorar o jeito de produzir cada um.</p>
+            <p>Qualidade de remédios, alimentos, tintas e combustíveis.</p>
           </li>
-          <li>
+          <li class="area revelar">
+            <div class="ilustracao" data-ilustracao="analises"></div>
             <h3>No laboratório de análises</h3>
-            <p>Descobrir o que tem numa amostra e quanto: a água que chega à cidade, o solo da lavoura, o lote de um medicamento.</p>
+            <p>O que tem na amostra, e quanto.</p>
           </li>
-          <li>
+          <li class="area revelar">
+            <div class="ilustracao" data-ilustracao="ambiente"></div>
             <h3>No meio ambiente</h3>
-            <p>Tratar água e esgoto, acompanhar a qualidade do ar e dos rios e dar o destino certo aos resíduos.</p>
+            <p>Água tratada, ar limpo e resíduo no lugar certo.</p>
           </li>
-          <li>
+          <li class="area revelar">
+            <div class="ilustracao" data-ilustracao="pericia"></div>
             <h3>Na perícia</h3>
-            <p>Analisar vestígios e substâncias para ajudar a esclarecer crimes, fraudes e adulterações.</p>
+            <p>Vestígios que ajudam a esclarecer crimes e fraudes.</p>
           </li>
-          <li>
+          <li class="area revelar">
+            <div class="ilustracao" data-ilustracao="pesquisa"></div>
             <h3>Na pesquisa</h3>
-            <p>Criar materiais, medicamentos, baterias e processos que ainda não existem, em universidades e centros de pesquisa.</p>
+            <p>Materiais, remédios e baterias que ainda não existem.</p>
           </li>
-          <li>
+          <li class="area revelar">
+            <div class="ilustracao" data-ilustracao="aula"></div>
             <h3>Na sala de aula</h3>
-            <p>Ensinar Química na escola, no curso técnico e na faculdade, e formar os próximos químicos.</p>
+            <p>Ensinar e formar os próximos químicos.</p>
           </li>
         </ul>
-        <div class="caminhos">
+        <div class="caminhos revelar">
           <h3>Caminhos de formação no Brasil</h3>
-          <p><strong>Técnico em Química:</strong> curso de nível médio, que pode ser feito junto com o ensino médio ou depois dele. Forma para o trabalho de bancada e de controle de qualidade.</p>
-          <p><strong>Graduação:</strong> bacharelado em Química, licenciatura em Química (para dar aula), Química Industrial e Engenharia Química. Áreas vizinhas, como Farmácia, Biomedicina e Engenharia de Alimentos, também usam muita Química.</p>
-          <p><strong>Registro profissional:</strong> para exercer a profissão, o técnico e o químico se registram no Conselho Regional de Química (CRQ) do seu estado.</p>
-          <p class="nota-caminhos">O que cada formação pode assinar e fazer é definido pelo sistema CFQ/CRQ. Antes de escolher um curso, vale conferir no site do conselho do seu estado e conversar com o seu professor.</p>
+          <ol class="trilha-formacao">
+          <li class="etapa revelar">
+            <div class="icone-redondo" data-ilustracao="livro"></div>
+            <h4>Ensino médio</h4>
+            <p>A base. As três caixas moram aqui.</p>
+          </li>
+          <li class="etapa revelar">
+            <div class="icone-redondo" data-ilustracao="frasco"></div>
+            <h4>Técnico em Química</h4>
+            <p>Nível médio: bancada e controle de qualidade.</p>
+          </li>
+          <li class="etapa revelar">
+            <div class="icone-redondo" data-ilustracao="capelo"></div>
+            <h4>Graduação</h4>
+            <p>Bacharelado, licenciatura, Química Industrial, Engenharia Química.</p>
+          </li>
+          <li class="etapa revelar">
+            <div class="icone-redondo" data-ilustracao="cracha"></div>
+            <h4>Registro no CRQ</h4>
+            <p>Para exercer a profissão, no conselho do seu estado.</p>
+          </li>
+          </ol>
+          <p class="nota-caminhos">Farmácia, Biomedicina e Engenharia de Alimentos também usam muita Química. O que cada formação pode fazer é definido pelo sistema CFQ/CRQ: confira no site do conselho do seu estado e converse com o seu professor.</p>
         </div>
       </div>
     </section>
@@ -184,8 +221,9 @@
       <div class="largura duas-colunas">
         <div>
           <h2 id="titulo-professores">Para professores</h2>
-          <p>O aluno estuda no próprio ritmo, em degraus que se abrem com acertos, ganhando medalhas, troféus e paletas de cores. Quando você pede, ele envia o progresso com um código que ele mesmo inventa, sem o nome.</p>
-          <p>O envio pode ir direto para uma planilha do Google da sua turma: cada aluno vira uma linha com XP, acertos, tempo de uso e os tipos de exercício em que mais erra. É o mapa do que revisar no quadro.</p>
+          <p>O aluno estuda no próprio ritmo, em degraus que se abrem com acertos. Quando você pede, ele envia o progresso com um código, sem o nome.</p>
+          <p>O envio pode cair direto numa planilha da turma: XP, acertos, tempo de uso e os exercícios em que mais erra. É o mapa do que revisar no quadro.</p>
+          <div class="ilustracao ilustracao-larga revelar" data-ilustracao="planilha"></div>
         </div>
         <ul class="lista-check">
           <li>Treino com alternativas, pensado para o celular</li>
@@ -220,5 +258,6 @@
     </div>
   </footer>
   <script type="module" src="gatos.js"></script>
+  <script type="module" src="ilustracoes.js"></script>
 </body>
 </html>

@@ -229,21 +229,153 @@ svg.sobre-gato { width: 160px; }
 @media (max-width: 760px) { .abertura.com-gato { padding-bottom: 96px; } }
 @media (max-width: 760px) { svg.abertura-gato { display: none; } }
 
-/* ---------- como estudar e a profissão ---------- */
+/* ---------- ilustrações animadas (ilustracoes.js) ---------- */
+:root { --ilu-traco: #2B2A33; --ilu-linha: #5A6070; --ilu-placa: #EEF1F6; --ilu-placa-2: #DCE1E9; --ilu-balao: #FFFFFF; }
+@media (prefers-color-scheme: dark) { :root { --ilu-traco: #D7DAE0; --ilu-linha: #B3B8C2; --ilu-placa: #22252B; --ilu-placa-2: #353943; --ilu-balao: #F4F5F7; } }
+.ilu { display: block; width: 100%; height: auto; }
+.ilu-contorno { stroke: var(--ilu-traco); stroke-linejoin: round; stroke-linecap: round; }
+.ilu-linha { fill: none; stroke: var(--ilu-linha); stroke-linecap: round; stroke-linejoin: round; }
+.ilu-trilha { stroke-dasharray: 2 6; }
+.ilustracao { background: var(--ilu-placa); border-radius: 14px; padding: 8px; margin-bottom: 14px; }
+.ilustracao .ilu { max-height: 132px; }
+.ilustracao-larga { margin-top: 20px; max-width: 460px; }
+.ilustracao-larga .ilu { max-height: none; }
+
+/* As partes que se mexem. transform-box: fill-box faz cada peça girar e crescer no próprio centro. */
+.ilu-pop, .ilu-brilha, .ilu-raios, .ilu-roda, .ilu-pula, .ilu-orelha, .ilu-pisca-olho, .ilu-lupa, .ilu-estrela, .ilu-zzz,
+.ilu-fumaca, .ilu-gira, .ilu-bolha, .ilu-gota, .ilu-gota-cai, .ilu-anel, .ilu-varre, .ilu-pendulo, .ilu-check-pulsa,
+.ilu-aviao, .ilu-abre, .ilu-mao, .ilu-barra { transform-box: fill-box; transform-origin: 50% 50%; }
+.ilu-orelha { transform-origin: 80% 100%; }
+.ilu-lupa { transform-origin: 30% 30%; }
+.ilu-pendulo { transform-origin: 0% 0%; }
+.ilu-mao { transform-origin: 0% 100%; }
+.ilu-barra { transform-origin: 50% 100%; }
+.ilu-abre { transform-origin: 100% 100%; }
+.ilu-atomo { transform-origin: 60px 45px; }
+.ilu-escreve { transform-box: view-box; }
+
+.ilu-pop { animation: ilu-pop 4.5s ease-in-out infinite; }
+.ilu-pop.p2 { animation-delay: 0.25s; } .ilu-pop.p3 { animation-delay: 0.5s; }
+.ilu-brilha { animation: ilu-brilha 4.5s ease-in-out infinite; }
+.ilu-raios { animation: ilu-raios 4.5s ease-in-out infinite; }
+.ilu-check { stroke-dasharray: 22; stroke-dashoffset: 22; animation: ilu-check 6s ease-out infinite; animation-delay: calc(var(--i) * 0.45s); }
+.ilu-roda { animation: ilu-roda 6s ease-in-out infinite; }
+.ilu-roda.r1 { animation-delay: -2s; } .ilu-roda.r2 { animation-delay: -4s; }
+.ilu-pula { animation: ilu-pula 1.2s ease-in-out infinite; }
+.ilu-pula.d1 { animation-delay: 0.15s; } .ilu-pula.d2 { animation-delay: 0.3s; }
+.ilu-orelha { animation: ilu-orelha 3s ease-in-out infinite; }
+.ilu-pisca-olho { animation: ilu-piscar 5s infinite; }
+.ilu-desenha { stroke-dasharray: 52; animation: ilu-desenha 4s ease-in-out infinite; }
+.ilu-lupa { animation: ilu-lupa 4s ease-in-out infinite; }
+.ilu-estrela { animation: ilu-estrela 2.4s ease-in-out infinite; }
+.ilu-estrela.d1 { animation-delay: -0.8s; } .ilu-estrela.d2 { animation-delay: -1.6s; }
+.ilu-zzz { animation: ilu-zzz 3s ease-in-out infinite; }
+.ilu-zzz.d1 { animation-delay: 0.5s; } .ilu-zzz.d2 { animation-delay: 1s; }
+.ilu-fumaca { animation: ilu-fumaca 3s ease-out infinite; }
+.ilu-fumaca.d1 { animation-delay: -1s; } .ilu-fumaca.d2 { animation-delay: -2s; }
+.ilu-gira { animation: ilu-girar 4s linear infinite; }
+.ilu-bolha { animation: ilu-bolha 2s ease-in infinite; }
+.ilu-bolha.d1 { animation-delay: -0.7s; } .ilu-bolha.d2 { animation-delay: -1.4s; }
+.ilu-gota { animation: ilu-gota 2s ease-in infinite; }
+.ilu-gota-cai { animation: ilu-gota-cai 2.6s ease-in infinite; }
+.ilu-anel { animation: ilu-anel 2.6s ease-out infinite; }
+.ilu-ondas { animation: ilu-ondas 2s linear infinite; }
+.ilu-varre { animation: ilu-varre 4s ease-in-out infinite alternate; }
+.ilu-atomo { animation: ilu-girar 10s linear infinite; }
+.ilu-escreve { animation: ilu-escreve 5s steps(16, end) infinite; }
+.ilu-pendulo { animation: ilu-pendulo 2.4s ease-in-out infinite alternate; }
+.ilu-check-pulsa { animation: ilu-brilha 3s ease-in-out infinite; }
+.ilu-aviao { animation: ilu-flutua 2.4s ease-in-out infinite alternate; }
+.ilu-abre { animation: ilu-abre 3.6s ease-in-out infinite; }
+.ilu-mao { animation: ilu-mao 1.6s ease-in-out infinite alternate; }
+.ilu-barra { animation: ilu-barra 5s ease-out infinite; animation-delay: calc(var(--i) * 0.15s); }
+
+@keyframes ilu-pop { 0%, 8% { transform: scale(0); opacity: 0; } 16%, 86% { transform: scale(1); opacity: 1; } 94%, 100% { transform: scale(0); opacity: 0; } }
+@keyframes ilu-brilha { 0%, 30%, 100% { transform: scale(1); filter: none; } 45%, 75% { transform: scale(1.12); filter: drop-shadow(0 0 5px #F2C230); } }
+@keyframes ilu-raios { 0%, 35%, 85%, 100% { opacity: 0; } 45%, 75% { opacity: 1; } }
+@keyframes ilu-check { 0% { stroke-dashoffset: 22; } 8%, 70% { stroke-dashoffset: 0; } 78%, 100% { stroke-dashoffset: 22; } }
+@keyframes ilu-roda { 0%, 26% { transform: translate(0, 0); } 33%, 59% { transform: translate(30px, 0); } 66%, 92% { transform: translate(60px, 0); } 96% { transform: translate(30px, -26px); } 100% { transform: translate(0, 0); } }
+@keyframes ilu-pula { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-4px); } }
+@keyframes ilu-orelha { 0%, 80%, 100% { transform: rotate(0); } 85% { transform: rotate(-14deg); } 90% { transform: rotate(4deg); } }
+@keyframes ilu-piscar { 0%, 92%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+@keyframes ilu-desenha { 0%, 30% { stroke-dashoffset: 52; } 65%, 90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 52; } }
+@keyframes ilu-lupa { 0%, 25%, 100% { transform: rotate(0); } 35% { transform: rotate(-10deg); } 45% { transform: rotate(8deg); } 55% { transform: rotate(0); } }
+@keyframes ilu-estrela { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.25; transform: scale(0.6); } }
+@keyframes ilu-zzz { 0% { opacity: 0; transform: translate(0, 6px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(5px, -10px); } }
+@keyframes ilu-fumaca { 0% { opacity: 0.8; transform: translate(0, 0) scale(0.6); } 100% { opacity: 0; transform: translate(10px, -16px) scale(1.4); } }
+@keyframes ilu-girar { to { transform: rotate(360deg); } }
+@keyframes ilu-bolha { 0% { opacity: 0; transform: translateY(0); } 25% { opacity: 1; } 100% { opacity: 0; transform: translateY(-16px); } }
+@keyframes ilu-gota { 0%, 30% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 85% { opacity: 1; transform: translateY(14px); } 100% { opacity: 0; transform: translateY(16px); } }
+@keyframes ilu-gota-cai { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 65% { opacity: 1; transform: translateY(38px); } 70%, 100% { opacity: 0; transform: translateY(40px); } }
+@keyframes ilu-anel { 0%, 64% { opacity: 0; transform: scale(0.2); } 70% { opacity: 1; transform: scale(0.5); } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes ilu-ondas { from { transform: translateX(0); } to { transform: translateX(20px); } }
+@keyframes ilu-varre { from { transform: translate(-6px, -4px); } to { transform: translate(14px, 8px); } }
+@keyframes ilu-escreve { 0% { transform: translateX(0); } 60%, 90% { transform: translateX(92px); } 100% { transform: translateX(0); } }
+@keyframes ilu-pendulo { from { transform: rotate(-8deg); } to { transform: rotate(10deg); } }
+@keyframes ilu-flutua { from { transform: translate(-2px, 2px); } to { transform: translate(2px, -2px); } }
+@keyframes ilu-abre { 0%, 30% { transform: translateY(0); } 50%, 80% { transform: translateY(-5px); } 100% { transform: translateY(0); } }
+@keyframes ilu-mao { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
+@keyframes ilu-barra { 0% { transform: scaleY(0.05); } 30%, 85% { transform: scaleY(1); } 100% { transform: scaleY(0.05); } }
+
+/* Os cartões entram suavemente quando chegam na tela. */
+:root.com-revelar .revelar { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+:root.com-revelar .revelar.na-tela { opacity: 1; transform: none; }
+.grade-habitos .revelar:nth-child(3n+2), .grade-profissao .revelar:nth-child(3n+2) { transition-delay: 0.1s; }
+.grade-habitos .revelar:nth-child(3n), .grade-profissao .revelar:nth-child(3n) { transition-delay: 0.2s; }
+
+/* Com as animações paradas (botão do rodapé), tudo fica no lugar e visível. */
+:root.sem-movimento [class^="ilu-"], :root.sem-movimento [class*=" ilu-"] { animation: none !important; }
+:root.sem-movimento .ilu-check { stroke-dashoffset: 0; }
+:root.sem-movimento .ilu-roda.r1 { transform: translate(30px, 0); } :root.sem-movimento .ilu-roda.r2 { transform: translate(60px, 0); }
+:root.sem-movimento .ilu-escreve { transform: translateX(92px); }
+:root.sem-movimento .ilu-gota, :root.sem-movimento .ilu-gota-cai, :root.sem-movimento .ilu-anel, :root.sem-movimento .ilu-fumaca, :root.sem-movimento .ilu-bolha, :root.sem-movimento .ilu-zzz { opacity: 0.9; }
+:root.sem-movimento .revelar { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* ---------- o que as caixas têm em comum ---------- */
+.grade-pontos li { display: flex; gap: 14px; align-items: flex-start; }
+.grade-pontos .icone { flex: 0 0 64px; width: 64px; height: 64px; border-radius: 16px; background: var(--ilu-placa); padding: 4px; }
+.grade-pontos h3::before { display: none; }
+.grade-pontos h3 { margin-bottom: 4px; }
+
+/* ---------- como estudar ---------- */
 .estudar, .profissao { padding: clamp(40px, 6vw, 72px) 0; }
 .estudar.com-gato { padding-bottom: clamp(72px, 8vw, 104px); }
 .estudar .esconderijo.direita { right: max(16px, calc(50% - 560px)); }
+.grade-habitos, .grade-profissao { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.habito { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 16px 18px 18px; box-shadow: var(--sombra); }
+.habito h3 { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; margin-bottom: 6px; }
+.habito .num { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--destaque); color: #FFFFFF; font-size: 0.95rem; }
+@media (prefers-color-scheme: dark) { .habito .num { color: #17181C; } }
+.habito .resumo { color: var(--texto); font-weight: 500; margin: 0; }
+.habito details { margin-top: 8px; }
+.habito summary { cursor: pointer; color: var(--destaque); font-weight: 500; font-size: 0.95rem; width: fit-content; list-style: none; }
+.habito summary::-webkit-details-marker { display: none; }
+.habito summary::before { content: "＋ "; }
+.habito details[open] summary::before { content: "－ "; }
+.habito details p { color: var(--texto-suave); margin: 6px 0 0; font-size: 0.97rem; }
+
+/* ---------- a profissão ---------- */
 .profissao { background: var(--superficie); border-block: 1px solid var(--borda); }
-.grade-habitos, .grade-profissao { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-.grade-habitos { counter-reset: habito; }
-.grade-habitos li { counter-increment: habito; position: relative; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px 22px 22px 70px; box-shadow: var(--sombra); }
-.grade-habitos li::before { content: counter(habito); position: absolute; left: 20px; top: 20px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--destaque); color: #FFFFFF; font-family: "Exo 2", sans-serif; font-style: italic; font-weight: 600; }
-@media (prefers-color-scheme: dark) { .grade-habitos li::before { color: #17181C; } }
-.grade-habitos h3, .grade-profissao h3 { font-size: 1.15rem; }
-.grade-habitos p, .grade-profissao p { color: var(--texto-suave); margin: 0; }
-.grade-profissao li { border-left: 4px solid var(--destaque); padding: 4px 0 4px 16px; }
-.grade-profissao li:nth-child(3n+2) { border-color: var(--molbox); }
-.grade-profissao li:nth-child(3n) { border-color: var(--organic); }
-.caminhos { margin-top: 32px; background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 24px; }
-.caminhos p { color: var(--texto-suave); max-width: 780px; }
-.caminhos .nota-caminhos { font-size: 0.92rem; margin: 0; }
+.area { text-align: center; }
+.area .ilustracao { border-bottom: 4px solid var(--destaque); }
+.area:nth-child(3n+2) .ilustracao { border-color: #3D7FC4; }
+.area:nth-child(3n) .ilustracao { border-color: #3FA86B; }
+.area h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.area p { color: var(--texto-suave); margin: 0; }
+.caminhos { margin-top: 36px; background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 24px; }
+.trilha-formacao { list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 16px; grid-template-columns: repeat(4, 1fr); position: relative; }
+.trilha-formacao::before { content: ""; position: absolute; left: 12%; right: 12%; top: 38px; border-top: 3px dashed var(--borda); z-index: 0; }
+.etapa { text-align: center; position: relative; z-index: 1; }
+.icone-redondo { width: 76px; height: 76px; margin: 0 auto 10px; border-radius: 50%; background: var(--ilu-placa); border: 3px solid var(--destaque); padding: 8px; }
+.etapa:nth-child(2) .icone-redondo { border-color: #3FA86B; }
+.etapa:nth-child(3) .icone-redondo { border-color: #3D7FC4; }
+.etapa:nth-child(4) .icone-redondo { border-color: #EE8A3C; }
+.etapa h4 { font-family: "Exo 2", Inter, sans-serif; font-style: italic; font-weight: 600; font-size: 1.05rem; margin: 0 0 4px; }
+.etapa p { color: var(--texto-suave); font-size: 0.93rem; margin: 0; }
+@media (max-width: 760px) {
+  .trilha-formacao { grid-template-columns: 1fr; }
+  .trilha-formacao::before { left: 38px; right: auto; top: 20px; bottom: 20px; border-top: 0; border-left: 3px dashed var(--borda); }
+  .etapa { display: grid; grid-template-columns: 76px 1fr; column-gap: 14px; text-align: left; align-items: center; }
+  .etapa .icone-redondo { grid-row: span 2; margin: 0; }
+}
+.caminhos .nota-caminhos { font-size: 0.9rem; color: var(--texto-suave); margin: 0; max-width: 780px; }
