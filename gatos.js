@@ -258,11 +258,32 @@ function iniciar() {
     svg.classList.add(...img.classList);
     img.replaceWith(svg);
   }
+  ligarBotaoDoMovimento();
   // Os esconderijos: <div data-esconderijo="bohr" data-onde="direita">.
   for (const lugar of document.querySelectorAll("[data-esconderijo]")) {
     lugar.classList.add("com-gato");
     lugar.append(gatoEscondido(lugar.dataset.esconderijo, lugar.dataset.onde || "direita"));
   }
+}
+
+/* As animações vêm ligadas; o botão do rodapé desliga e guarda a escolha neste aparelho. */
+const CHAVE_MOVIMENTO = "caixaquimica.movimento";
+function movimentoLigado() {
+  try { return localStorage.getItem(CHAVE_MOVIMENTO) !== "nao"; } catch (e) { return true; }
+}
+function ligarBotaoDoMovimento() {
+  const botao = document.getElementById("botao-movimento");
+  const aplicar = () => {
+    document.documentElement.classList.toggle("sem-movimento", !movimentoLigado());
+    if (botao) botao.textContent = movimentoLigado() ? "⏸ Parar as animações" : "▶ Ligar as animações";
+  };
+  aplicar();
+  if (!botao) return;
+  botao.hidden = false;
+  botao.addEventListener("click", () => {
+    try { localStorage.setItem(CHAVE_MOVIMENTO, movimentoLigado() ? "nao" : "sim"); } catch (e) { /* vale só agora */ }
+    aplicar();
+  });
 }
 
 if (typeof document !== "undefined") {

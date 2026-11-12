@@ -214,14 +214,15 @@ svg.sobre-gato { width: 160px; }
 .gato-rabo, .gato-olhos { transform-box: fill-box; }
 .gato-rabo { transform-origin: 0% 100%; }
 .gato-olhos { transform-origin: 50% 50%; }
-@media (prefers-reduced-motion: no-preference) {
-  .gato-rabo { animation: gato-rabo 3.2s ease-in-out infinite; }
-}
-/* O piscar é um movimento mínimo: fica ligado mesmo em aparelhos com as animações reduzidas. */
+/* As animações vêm ligadas para todo mundo; o botão do rodapé desliga (classe sem-movimento). */
+.gato-rabo { animation: gato-rabo 3.2s ease-in-out infinite; }
 .gato-olhos { animation: gato-piscar 5.5s infinite; }
 .caixa-molbox .gato-olhos { animation-delay: -1.8s; }
 .caixa-organic .gato-olhos { animation-delay: -3.4s; }
-@media (prefers-reduced-motion: reduce) { .gato-escondido { transition: none; } }
+:root.sem-movimento .gato-rabo, :root.sem-movimento .gato-olhos { animation: none; }
+:root.sem-movimento .gato-escondido { transition: none; }
+.botao-movimento { appearance: none; cursor: pointer; font: inherit; font-size: 0.9rem; margin-top: 10px; padding: 6px 14px; border-radius: 999px; border: 1px solid #4A4D54; background: none; color: #D7DAE0; }
+.botao-movimento:hover { border-color: #FFFFFF; color: #FFFFFF; }
 @keyframes gato-rabo { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(7deg); } }
 @keyframes gato-piscar { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.08); } }
 .abertura .esconderijo.direita { right: max(16px, calc(50% - 560px)); }
