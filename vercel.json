@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
   "redirects": [
     {
       "source": "/atomicbox",
@@ -20,16 +19,28 @@
   ],
   "rewrites": [
     {
-      "source": "/atomicbox/:caminho*",
-      "destination": "https://atomicbox.vercel.app/:caminho*"
+      "source": "/atomicbox/",
+      "destination": "https://atomicbox.vercel.app/"
     },
     {
-      "source": "/molbox/:caminho*",
-      "destination": "https://supermolbox.vercel.app/:caminho*"
+      "source": "/atomicbox/:caminho+",
+      "destination": "https://atomicbox.vercel.app/:caminho+"
     },
     {
-      "source": "/organicbox/:caminho*",
-      "destination": "https://superorganico.vercel.app/:caminho*"
+      "source": "/molbox/",
+      "destination": "https://supermolbox.vercel.app/"
+    },
+    {
+      "source": "/molbox/:caminho+",
+      "destination": "https://supermolbox.vercel.app/:caminho+"
+    },
+    {
+      "source": "/organicbox/",
+      "destination": "https://superorganico.vercel.app/"
+    },
+    {
+      "source": "/organicbox/:caminho+",
+      "destination": "https://superorganico.vercel.app/:caminho+"
     }
   ]
 }
