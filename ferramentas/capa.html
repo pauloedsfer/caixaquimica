@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa para compartilhar</title>
+<!-- A imagem de capa (marca/capa.jpg) que aparece quando alguém compartilha o link no WhatsApp ou
+     nas redes. Os gatos vêm de gatos.js, os mesmos da página. Para gerar de novo: sirva a pasta
+     (python3 -m http.server 8300) e rode `node ferramentas/gerar_capa.cjs`. -->
+<style>
+  @font-face { font-family: "Exo 2"; font-style: italic; font-weight: 600; src: url("../fontes/exo-2-latin-600-italic.woff2") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 400; src: url("../fontes/inter-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 500; src: url("../fontes/inter-latin-500-normal.woff2") format("woff2"); }
+  html, body { margin: 0; }
+  #capa {
+    width: 1200px; height: 630px; box-sizing: border-box; position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 610px 1fr; align-items: center; padding: 0 56px 0 72px;
+    color: #FFFFFF; font-family: Inter, Arial, sans-serif;
+    background:
+      radial-gradient(700px 360px at 92% -6%, rgba(200, 32, 42, 0.35), transparent 62%),
+      radial-gradient(500px 300px at 10% 110%, rgba(22, 65, 148, 0.35), transparent 60%),
+      linear-gradient(160deg, #17181C, #0E0F12 70%);
+  }
+  .sobre { font-size: 21px; letter-spacing: 0.16em; color: #FF8A8F; margin: 0 0 18px; font-weight: 500; }
+  h1 { font-family: "Exo 2", Inter, sans-serif; font-style: italic; font-weight: 600; font-size: 104px; line-height: 0.98; margin: 0 0 26px; letter-spacing: -0.01em; }
+  h1 span { color: #FF5A61; display: block; }
+  .lema { font-size: 31px; line-height: 1.35; color: #D7DAE0; margin: 0 0 34px; }
+  .endereco { display: inline-block; font-size: 25px; font-weight: 500; padding: 12px 26px; border-radius: 999px; background: #E3262E; }
+  .gatos { display: grid; grid-template-columns: repeat(2, 230px); gap: 6px 22px; justify-content: center; }
+  .gato { text-align: center; }
+  .gato svg { width: 230px; height: 196px; display: block; overflow: visible; }
+  .gato p { margin: -6px 0 0; font-family: "Exo 2", Inter, sans-serif; font-style: italic; font-weight: 600; font-size: 23px; }
+  .gato small { display: block; font-family: Inter, sans-serif; font-style: normal; font-weight: 400; font-size: 16px; color: #B3B8C2; }
+</style>
+</head>
+<body>
+<div id="capa">
+  <div>
+    <p class="sobre">APLICATIVOS GRATUITOS</p>
+    <h1>Caixa <span>Química</span></h1>
+    <p class="lema">Do que se vê ao átomo.<br>Do átomo à molécula.</p>
+    <span class="endereco">caixaquimica.com.br</span>
+  </div>
+  <div class="gatos" id="gatos"></div>
+</div>
+<script type="module">
+  import { desenhoDoGato } from "../gatos.js";
+  const GATOS = [["schrodinger", "Dinger", "Caixa Química"], ["bohr", "Bohr", "Atomic Box"], ["avogato", "Avogato", "Molbox"], ["kekule", "Kekulé", "Organic Box"]];
+  const lugar = document.getElementById("gatos");
+  for (const [id, nome, caixa] of GATOS) {
+    const div = document.createElement("div");
+    div.className = "gato";
+    const svg = desenhoDoGato(id, "caixa", "");
+    svg.setAttribute("viewBox", "0 4 120 116");
+    const p = document.createElement("p");
+    p.textContent = nome;
+    const small = document.createElement("small");
+    small.textContent = caixa;
+    p.append(small);
+    div.append(svg, p);
+    lugar.append(div);
+  }
+  document.fonts.ready.then(() => { document.body.dataset.pronto = "1"; });
+</script>
+</body>
+</html>
