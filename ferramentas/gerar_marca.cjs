@@ -7,9 +7,9 @@ const path = require("path");
 const { chromium } = require("playwright");
 
 const ARQUIVOS = [
-  ["schrodinger", "caixa", "marca/caixaquimica.svg", "Schrödinger, o gato da Caixa Química"],
+  ["schrodinger", "caixa", "marca/caixaquimica.svg", "Dinger, o gato da Caixa Química"],
   ["schrodinger", "caixa", "favicon.svg", "Caixa Química"],
-  ["schrodinger", "feliz", "marca/gato-schrodinger.svg", "Schrödinger, o gato arlequim da Caixa Química"],
+  ["schrodinger", "feliz", "marca/gato-schrodinger.svg", "Dinger, o gato arlequim da Caixa Química"],
   ["bohr", "caixa", "marca/gato-atomic.svg", "Bohr, o gato preto da Atomic Box"],
   ["avogato", "caixa", "marca/gato-molbox.svg", "Avogato, o gato laranja do Molbox"],
   ["kekule", "caixa", "marca/gato-organic.svg", "Kekulé, o gato branco da Organic Box"],

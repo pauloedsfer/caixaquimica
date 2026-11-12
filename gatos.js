@@ -1,6 +1,6 @@
 /* Os gatos da Caixa Química, no mesmo desenho dos aplicativos (SVG, sem imagem para baixar).
 
-   Schrödinger é o gato arlequim (branco, preto e laranja: as cores dos outros três) que cuida das
+   Dinger (apelido de Schrödinger, dado pelos alunos) é o gato arlequim (branco, preto e laranja: as cores dos outros três) que cuida das
    três caixas; o Bohr (preto) mora na Atomic Box, o
    Avogato (laranja) no Molbox e o Kekulé (branco) na Organic Box. Nesta página eles ficam
    escondidos: só as orelhas aparecem na beira de um cartão. Um toque e o gato sobe com uma frase
@@ -159,7 +159,7 @@ function naCaixa(c, frente) {
 }
 
 const GATOS = {
-  schrodinger: { nome: "Schrödinger", frente: "quimica" },
+  schrodinger: { nome: "Dinger", frente: "quimica" },
   bohr: { nome: "Bohr", frente: "atomic" },
   avogato: { nome: "Avogato", frente: "molbox" },
   kekule: { nome: "Kekulé", frente: "organic" },
@@ -182,6 +182,7 @@ const FRASES = {
     "Psiu: 15 minutos de estudo hoje valem mais que 3 horas na véspera da prova.",
     "A curiosidade não matou o gato. Fez dele um cientista.",
     "Ninguém nasce sabendo Química. Nem eu, e olha que eu moro na caixa.",
+    "Meu nome completo é Schrödinger, mas pode me chamar de Dinger. Foi a turma que escolheu!",
     "Não entendeu de primeira? Normal. Entender de segunda também vale.",
   ],
   bohr: [
