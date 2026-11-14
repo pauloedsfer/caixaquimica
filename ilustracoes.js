@@ -278,6 +278,12 @@ const DESENHOS = {
     g("ilu-moeda", [c("circle", { cx: 30, cy: 12, r: 6, fill: AMARELO }), s("text", { x: 30, y: 15.5, "text-anchor": "middle", "font-size": 9, "font-weight": 700, fill: "#8A6A10", "font-family": "Inter, Arial, sans-serif" }, ["$"])]),
     g("ilu-bate", [c("path", { d: "M30 54 C10 40 8 30 12 24 C16 18 25 18 30 26 C35 18 44 18 48 24 C52 30 50 40 30 54 Z", fill: VERMELHO })]),
   ],
+  // A tela com o botão de play, como um vídeo começando.
+  canal: () => [
+    c("rect", { x: 6, y: 12, width: 48, height: 34, rx: 9, fill: VERMELHO }),
+    g("ilu-bate", [s("path", { d: "M25 21 L39 29 L25 37 Z", fill: "#FFFFFF" })]),
+    s("rect", { x: 14, y: 50, width: 32, height: 4, rx: 2, fill: "var(--ilu-linha)", opacity: 0.6 }),
+  ],
   // O balão de conversa com uma estrela.
   feedback: () => [
     c("path", { d: "M10 12 H50 Q54 12 54 16 V38 Q54 42 50 42 H26 L16 50 L18 42 H10 Q6 42 6 38 V16 Q6 12 10 12 Z", fill: "var(--ilu-balao)" }),
@@ -299,7 +305,7 @@ const DESENHOS = {
   },
 };
 
-const QUADROS = { parceria: "0 0 60 60", doacao: "0 0 60 60", feedback: "0 0 60 60", livro: "0 0 60 60", frasco: "0 0 60 60", capelo: "0 0 60 60", cracha: "0 0 60 60", pista: "0 0 60 60", offline: "0 0 60 60", cadeado: "0 0 60 60", turma: "0 0 60 60", planilha: "0 0 240 96" };
+const QUADROS = { canal: "0 0 60 60", parceria: "0 0 60 60", doacao: "0 0 60 60", feedback: "0 0 60 60", livro: "0 0 60 60", frasco: "0 0 60 60", capelo: "0 0 60 60", cracha: "0 0 60 60", pista: "0 0 60 60", offline: "0 0 60 60", cadeado: "0 0 60 60", turma: "0 0 60 60", planilha: "0 0 240 96" };
 
 function desenhar(alvo) {
   const nome = alvo.dataset.ilustracao;
