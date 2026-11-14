@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cabeçalho do formulário</title>
+<!-- A imagem de cabeçalho do formulário de contato (Google Forms, 1600 × 400). Para gerar de novo:
+     sirva a pasta (python3 -m http.server 8300) e rode
+     `node ferramentas/gerar_capa.cjs http://127.0.0.1:8300/ cabecalho-forms`. -->
+<style>
+  @font-face { font-family: "Exo 2"; font-style: italic; font-weight: 600; src: url("../fontes/exo-2-latin-600-italic.woff2") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 500; src: url("../fontes/inter-latin-500-normal.woff2") format("woff2"); }
+  html, body { margin: 0; }
+  #capa {
+    width: 1600px; height: 400px; box-sizing: border-box; position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 70px 0 90px;
+    color: #FFFFFF; font-family: Inter, Arial, sans-serif;
+    background:
+      radial-gradient(700px 320px at 96% -10%, rgba(200, 32, 42, 0.35), transparent 62%),
+      radial-gradient(600px 300px at 0% 120%, rgba(22, 65, 148, 0.4), transparent 60%),
+      linear-gradient(160deg, #17181C, #0E0F12 70%);
+  }
+  .sobre { font-size: 28px; letter-spacing: 0.14em; color: #FF8A8F; margin: 0 0 6px; font-weight: 500; }
+  h1 { font-family: "Exo 2", Inter, sans-serif; font-style: italic; font-weight: 600; font-size: 112px; line-height: 1; margin: 0 0 22px; letter-spacing: -0.01em; white-space: nowrap; }
+  h1 span { background: linear-gradient(100deg, #FF5A61 0%, #FF7A59 45%, #FFB08F 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 0.08em; }
+  .assuntos { display: flex; gap: 14px; }
+  .assuntos span { font-size: 26px; font-weight: 500; padding: 8px 20px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.22); }
+  .gatos { display: flex; gap: 4px; align-items: flex-end; }
+  .gatos svg { width: 168px; height: 160px; display: block; overflow: visible; }
+  .gatos svg.maior { width: 210px; height: 200px; }
+</style>
+</head>
+<body>
+<div id="capa">
+  <div>
+    <p class="sobre">FALE COM A</p>
+    <h1>Caixa <span>Química</span></h1>
+    <div class="assuntos"><span>Parcerias</span><span>Doações</span><span>Ideias e correções</span></div>
+  </div>
+  <div class="gatos" id="gatos"></div>
+</div>
+<script type="module">
+  import { desenhoDoGato } from "../gatos.js";
+  const lugar = document.getElementById("gatos");
+  for (const [id, maior] of [["bohr"], ["avogato"], ["schrodinger", true], ["kekule"]]) {
+    const svg = desenhoDoGato(id, "caixa", "");
+    svg.setAttribute("viewBox", "6 8 108 110");
+    if (maior) svg.classList.add("maior");
+    lugar.append(svg);
+  }
+  document.fonts.ready.then(() => { document.body.dataset.pronto = "1"; });
+</script>
+</body>
+</html>
