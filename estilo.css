@@ -431,3 +431,25 @@ svg.sobre-gato { width: 160px; }
 .pix-status { display: block; font-size: 0.85rem; color: var(--texto-suave); margin-top: 6px; min-height: 1.2em; }
 .botao-canal { display: inline-flex; align-items: center; margin-top: 12px; text-decoration: none; border-color: #E3262E; color: #FFFFFF; background: #E3262E; }
 .botao-canal:hover { background: #C8202A; border-color: #C8202A; }
+
+/* ---------- E por que caixa? (a caixa que abre) ---------- */
+.caixa-misterio { margin-top: 18px; max-width: 680px; background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio); }
+.caixa-misterio summary { display: grid; grid-template-columns: 64px 1fr; column-gap: 16px; align-items: center; padding: 14px 18px; cursor: pointer; list-style: none; border-radius: var(--raio); }
+.caixa-misterio summary::-webkit-details-marker { display: none; }
+.caixa-misterio summary:hover { background: var(--superficie); }
+.caixinha { grid-row: span 2; width: 64px; height: 56px; overflow: visible; }
+.caixinha-fundo { fill: #1B1C1F; stroke: #9AA0AA; stroke-width: 2; }
+.caixinha-faixa { fill: #E3262E; }
+.caixinha-interrogacao { fill: #FFFFFF; font: 700 15px "Exo 2", Inter, sans-serif; opacity: 0; transition: opacity 0.3s; }
+.caixinha-tampa path, .caixinha-tampa rect { fill: #33363C; stroke: #9AA0AA; stroke-width: 2; }
+.caixinha-tampa { transform-box: fill-box; transform-origin: 0% 100%; transition: transform 0.45s cubic-bezier(.3, 1.4, .5, 1); }
+.caixa-misterio[open] .caixinha-tampa { transform: rotate(-38deg) translate(-2px, -4px); }
+.caixa-misterio[open] .caixinha-interrogacao { opacity: 1; }
+.caixa-pergunta { font-family: "Exo 2", Inter, sans-serif; font-style: italic; font-weight: 600; font-size: 1.25rem; color: var(--texto); }
+.caixa-dica { color: var(--destaque); font-size: 0.9rem; font-weight: 500; }
+.caixa-misterio[open] .caixa-dica { display: none; }
+.caixa-conteudo { padding: 0 18px 16px 98px; }
+.caixa-conteudo p:last-child { margin-bottom: 0; }
+@media (max-width: 560px) { .caixa-conteudo { padding: 0 18px 16px; } }
+:root:not(.sem-movimento) .caixa-misterio:not([open]) .caixinha-tampa { animation: caixinha-espia 3.6s ease-in-out infinite; }
+@keyframes caixinha-espia { 0%, 70%, 100% { transform: rotate(0); } 78% { transform: rotate(-12deg); } 86% { transform: rotate(-4deg); } 92% { transform: rotate(-9deg); } }
