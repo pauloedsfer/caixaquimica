@@ -316,6 +316,32 @@ function ligarContato() {
   document.getElementById("botao-contato").href = link;
   secao.hidden = false;
   document.querySelectorAll("[data-so-com-formulario]").forEach((el) => { el.hidden = false; });
+  ligarCopiaDoPix();
+}
+
+/* O botão que copia a chave Pix. Sem acesso à área de transferência, seleciona a chave para o
+   visitante copiar à mão. */
+function ligarCopiaDoPix() {
+  const botao = document.getElementById("copiar-pix");
+  const chave = document.getElementById("chave-pix");
+  const status = document.getElementById("pix-status");
+  if (!botao || !chave) return;
+  const selecionar = () => {
+    const faixa = document.createRange();
+    faixa.selectNodeContents(chave);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(faixa);
+  };
+  botao.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(chave.textContent.trim());
+      status.textContent = "Chave copiada! Cole no app do seu banco, na opção Pix. Obrigado!";
+    } catch (e) {
+      selecionar();
+      status.textContent = "A chave está selecionada: copie e cole no app do seu banco.";
+    }
+  });
 }
 
 function iniciar() {

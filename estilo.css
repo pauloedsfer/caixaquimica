@@ -421,3 +421,11 @@ svg.sobre-gato { width: 160px; }
 @keyframes ilu-moeda { 0% { transform: translateY(-6px); opacity: 0; } 20% { opacity: 1; } 70% { transform: translateY(14px); opacity: 1; } 85%, 100% { transform: translateY(16px); opacity: 0; } }
 @keyframes ilu-bate { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(0.97); } 45% { transform: scale(1.06); } }
 :root.sem-movimento .ilu-encaixa, :root.sem-movimento .ilu-moeda, :root.sem-movimento .ilu-bate { animation: none; opacity: 1; transform: none; }
+
+/* ---------- Pix ---------- */
+.pix { margin-top: 12px; padding: 12px; border-radius: 12px; background: var(--ilu-placa); }
+.pix-rotulo { font-size: 0.85rem; font-weight: 500; color: var(--texto-suave) !important; margin: 0 0 4px !important; }
+.pix-chave { display: block; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.82rem; word-break: break-all; color: var(--texto); user-select: all; margin-bottom: 10px; }
+.botao-copiar { appearance: none; cursor: pointer; font: inherit; font-size: 0.95rem; font-weight: 500; min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--destaque); background: transparent; color: var(--destaque); }
+.botao-copiar:hover { background: var(--destaque); color: #FFFFFF; }
+.pix-status { display: block; font-size: 0.85rem; color: var(--texto-suave); margin-top: 6px; min-height: 1.2em; }
