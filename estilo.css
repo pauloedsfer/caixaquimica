@@ -174,7 +174,7 @@ p { margin: 0 0 1em; }
 /* Abertura: o gato grande ao lado do texto (some no celular, onde o texto vem primeiro). */
 .abertura-grade { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
 .abertura-gato { width: clamp(200px, 24vw, 300px); height: auto; filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55)); }
-@media (max-width: 760px) { .abertura-grade { grid-template-columns: 1fr; } .abertura-gato { display: none; } }
+@media (max-width: 760px) { .abertura-grade { grid-template-columns: 1fr; gap: 20px; } .abertura-gato { order: -1; justify-self: center; width: 190px; } }
 
 /* ---------- os gatos ---------- */
 .gato-desenho { display: block; height: auto; overflow: visible; }
@@ -227,7 +227,7 @@ svg.sobre-gato { width: 160px; }
 @keyframes gato-piscar { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.08); } }
 .abertura .esconderijo.direita { right: max(16px, calc(50% - 560px)); }
 @media (max-width: 760px) { .abertura.com-gato { padding-bottom: 96px; } }
-@media (max-width: 760px) { svg.abertura-gato { display: none; } }
+@media (max-width: 760px) { svg.abertura-gato { width: 190px; } .abertura { padding-top: 28px; } }
 
 /* ---------- ilustrações animadas (ilustracoes.js) ---------- */
 :root { --ilu-traco: #2B2A33; --ilu-linha: #5A6070; --ilu-placa: #EEF1F6; --ilu-placa-2: #DCE1E9; --ilu-balao: #FFFFFF; }
@@ -389,3 +389,35 @@ svg.sobre-gato { width: 160px; }
   .etapa .icone-redondo { grid-row: span 2; margin: 0; }
 }
 .caminhos .nota-caminhos { font-size: 0.9rem; color: var(--texto-suave); margin: 0; max-width: 780px; }
+
+/* ---------- o logo do topo ---------- */
+.topo-linha { min-height: 80px; }
+.marca { gap: 12px; }
+.marca img { width: 54px; height: 54px; border-radius: 12px; padding: 3px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
+.marca-nome { display: inline-flex; align-items: baseline; gap: 0.28em; font-size: 1.9rem; line-height: 1; letter-spacing: -0.01em; }
+.marca-caixa { color: #FFFFFF; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); }
+.marca-super {
+  background: linear-gradient(100deg, #FF5A61 0%, #FF7A59 45%, #FFB08F 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(227, 38, 46, 0.45)); padding-right: 0.08em;
+}
+@media (max-width: 560px) { .marca-nome { font-size: 1.6rem; } .marca img { width: 46px; height: 46px; } .topo-linha { min-height: 70px; } }
+
+/* ---------- fale comigo ---------- */
+.contato { padding: clamp(48px, 7vw, 88px) 0; background: linear-gradient(180deg, var(--fundo), var(--superficie)); border-top: 1px solid var(--borda); text-align: center; }
+.contato .ajuda-secao { margin-inline: auto; }
+.grade-contato { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); text-align: left; }
+.grade-contato li { display: flex; gap: 14px; align-items: flex-start; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 18px; box-shadow: var(--sombra); }
+.grade-contato .icone { flex: 0 0 64px; width: 64px; height: 64px; border-radius: 16px; background: var(--ilu-placa); padding: 4px; }
+.grade-contato h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.grade-contato p { color: var(--texto-suave); margin: 0; }
+.botao-contato { font-size: 1.1rem; padding: 16px 32px; }
+.nota-contato { color: var(--texto-suave); font-size: 0.9rem; margin: 12px 0 0; }
+.ilu-encaixa, .ilu-moeda, .ilu-bate { transform-box: fill-box; transform-origin: 50% 50%; }
+.ilu-encaixa { animation: ilu-encaixa 3s ease-in-out infinite; }
+.ilu-moeda { animation: ilu-moeda 2.4s ease-in infinite; }
+.ilu-bate { animation: ilu-bate 1.2s ease-in-out infinite; }
+@keyframes ilu-encaixa { 0%, 20% { transform: translateX(-5px); } 45%, 80% { transform: translateX(0); } 100% { transform: translateX(-5px); } }
+@keyframes ilu-moeda { 0% { transform: translateY(-6px); opacity: 0; } 20% { opacity: 1; } 70% { transform: translateY(14px); opacity: 1; } 85%, 100% { transform: translateY(16px); opacity: 0; } }
+@keyframes ilu-bate { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(0.97); } 45% { transform: scale(1.06); } }
+:root.sem-movimento .ilu-encaixa, :root.sem-movimento .ilu-moeda, :root.sem-movimento .ilu-bate { animation: none; opacity: 1; transform: none; }

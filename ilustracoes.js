@@ -266,6 +266,24 @@ const DESENHOS = {
     g("ilu-mao", [c("path", { d: "M40 44 L48 20", fill: "none", "stroke-width": 5 }), s("circle", { cx: 48.5, cy: 18, r: 3.6, fill: "#9A6440" })]),
   ],
 
+  /* ---------- fale comigo (ícones) ---------- */
+
+  // Duas peças de quebra-cabeça se encaixando.
+  parceria: () => [
+    g("ilu-encaixa", [c("path", { d: "M8 20 H22 Q21 14 26 14 Q31 14 30 20 H34 V32 Q40 31 40 36 Q40 41 34 40 V50 H8 Z", fill: AZUL })]),
+    c("path", { d: "M34 20 H52 V50 H34 V40 Q40 41 40 36 Q40 31 34 32 Z", fill: VERDE }),
+  ],
+  // O coração com uma moeda caindo.
+  doacao: () => [
+    g("ilu-moeda", [c("circle", { cx: 30, cy: 12, r: 6, fill: AMARELO }), s("text", { x: 30, y: 15.5, "text-anchor": "middle", "font-size": 9, "font-weight": 700, fill: "#8A6A10", "font-family": "Inter, Arial, sans-serif" }, ["$"])]),
+    g("ilu-bate", [c("path", { d: "M30 54 C10 40 8 30 12 24 C16 18 25 18 30 26 C35 18 44 18 48 24 C52 30 50 40 30 54 Z", fill: VERMELHO })]),
+  ],
+  // O balão de conversa com uma estrela.
+  feedback: () => [
+    c("path", { d: "M10 12 H50 Q54 12 54 16 V38 Q54 42 50 42 H26 L16 50 L18 42 H10 Q6 42 6 38 V16 Q6 12 10 12 Z", fill: "var(--ilu-balao)" }),
+    g("ilu-brilha", [s("path", { d: "M30 17 L33 24 L41 24.5 L35 29.5 L37 37 L30 33 L23 37 L25 29.5 L19 24.5 L27 24 Z", fill: AMARELO, stroke: "#8A6A10", "stroke-width": 1.2, "stroke-linejoin": "round" })]),
+  ],
+
   /* ---------- para professores ---------- */
 
   // A planilha da turma com as barras crescendo.
@@ -281,7 +299,7 @@ const DESENHOS = {
   },
 };
 
-const QUADROS = { livro: "0 0 60 60", frasco: "0 0 60 60", capelo: "0 0 60 60", cracha: "0 0 60 60", pista: "0 0 60 60", offline: "0 0 60 60", cadeado: "0 0 60 60", turma: "0 0 60 60", planilha: "0 0 240 96" };
+const QUADROS = { parceria: "0 0 60 60", doacao: "0 0 60 60", feedback: "0 0 60 60", livro: "0 0 60 60", frasco: "0 0 60 60", capelo: "0 0 60 60", cracha: "0 0 60 60", pista: "0 0 60 60", offline: "0 0 60 60", cadeado: "0 0 60 60", turma: "0 0 60 60", planilha: "0 0 240 96" };
 
 function desenhar(alvo) {
   const nome = alvo.dataset.ilustracao;
@@ -290,7 +308,18 @@ function desenhar(alvo) {
   alvo.replaceChildren(svg);
 }
 
+/* O contato só aparece com o link do formulário preenchido (data-formulario na seção). */
+function ligarContato() {
+  const secao = document.getElementById("contato");
+  const link = secao && secao.dataset.formulario;
+  if (!link || !/^https:\/\//.test(link)) return;
+  document.getElementById("botao-contato").href = link;
+  secao.hidden = false;
+  document.querySelectorAll("[data-so-com-formulario]").forEach((el) => { el.hidden = false; });
+}
+
 function iniciar() {
+  ligarContato();
   document.querySelectorAll("[data-ilustracao]").forEach(desenhar);
   // Os cartões entram suavemente quando chegam na tela.
   const revelar = document.querySelectorAll(".revelar");

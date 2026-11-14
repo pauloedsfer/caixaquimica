@@ -28,8 +28,8 @@
   <header class="topo">
     <div class="largura topo-linha">
       <a class="marca" href="./" aria-label="Caixa Química, início">
-        <img src="marca/caixaquimica.svg" alt="" width="40" height="40">
-        <span>Caixa <span class="marca-super">Química</span></span>
+        <img src="marca/caixaquimica.svg" alt="" width="54" height="54">
+        <span class="marca-nome"><span class="marca-caixa">Caixa</span><span class="marca-super">Química</span></span>
       </a>
       <nav aria-label="Seções">
         <a href="#caixas">Aplicativos</a>
@@ -37,6 +37,7 @@
         <a href="#profissao">A profissão</a>
         <a href="#professores">Para professores</a>
         <a href="#sobre">Sobre</a>
+        <a href="#contato" hidden data-so-com-formulario>Contato</a>
       </nav>
     </div>
   </header>
@@ -57,7 +58,7 @@
     <section id="caixas" class="caixas" aria-labelledby="titulo-caixas">
       <div class="largura">
         <h2 id="titulo-caixas">Escolha a sua caixa</h2>
-        <p class="ajuda-secao">Comece pela que combina com o que você está estudando agora. A ordem sugerida vai da esquerda para a direita. E repare nas orelhas: tem um gato escondido em cada caixa.</p>
+        <p class="ajuda-secao">Comece pela que combina com o que você está estudando agora. A ordem sugerida segue os números: 1, 2 e 3. E repare nas orelhas: tem um gato escondido em cada caixa.</p>
         <ol class="escada">
           <li class="caixa caixa-atomic" data-esconderijo="bohr">
             <div class="caixa-cabeca">
@@ -256,6 +257,29 @@
           </div>
         </div>
         <!-- Quando houver: link do canal no YouTube e a página "Apoie o projeto" (Pix). -->
+      </div>
+    </section>
+    <!-- Contato: aparece quando o link do formulário estiver em data-formulario (ilustracoes.js). -->
+    <section id="contato" class="contato" aria-labelledby="titulo-contato" data-formulario="" hidden>
+      <div class="largura">
+        <h2 id="titulo-contato">Fale comigo</h2>
+        <p class="ajuda-secao">A Caixa Química é feita por um professor, com a ajuda de quem usa. Toda mensagem é lida.</p>
+        <ul class="grade-contato">
+          <li class="revelar">
+            <div class="icone" data-ilustracao="parceria"></div>
+            <div><h3>Parcerias</h3><p>Escolas, redes de ensino, cursos técnicos e projetos que queiram usar ou levar as caixas mais longe.</p></div>
+          </li>
+          <li class="revelar">
+            <div class="icone" data-ilustracao="doacao"></div>
+            <div><h3>Apoie o projeto</h3><p>Os aplicativos são gratuitos e sem anúncio. Uma doação ajuda a manter tudo no ar e a criar a próxima caixa.</p></div>
+          </li>
+          <li class="revelar">
+            <div class="icone" data-ilustracao="feedback"></div>
+            <div><h3>Ideias e correções</h3><p>Achou um erro, tem uma ideia ou quer contar como usou em sala? É assim que as caixas melhoram.</p></div>
+          </li>
+        </ul>
+        <a class="botao-principal botao-contato" id="botao-contato" href="#" target="_blank" rel="noopener noreferrer">Abrir o formulário de contato</a>
+        <p class="nota-contato">O formulário abre fora do site e precisa de internet.</p>
       </div>
     </section>
   </main>
